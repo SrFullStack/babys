@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import axios from "axios";
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function BabySiterGetById() {
 
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    const navigate=useNavigate();
    
     const BabySiterGetById =async ()=>{
    try{
@@ -23,6 +25,9 @@ export default function BabySiterGetById() {
         console.error(err);
     }
 }
+const RegisterBabySiter=()=>{
+  navigate("/RegisterBabySiter")
+}
     return (
       
       <div>
@@ -30,6 +35,7 @@ export default function BabySiterGetById() {
        <input className="input" type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} /><br></br>
        <input className="input" type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
        <button onClick={BabySiterGetById}>GetById</button>
+       <button onClick={RegisterBabySiter}>RegisterBabySiter</button>
       </div>
     )
   }
