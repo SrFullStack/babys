@@ -19,7 +19,7 @@ const Register= async()=>{
 try{
    await axios.post(`https://localhost:44312/api/BabySiter`, babysiter)
         .then(response => setAge(response.data.age));
-        navigate("/PostTime", { state: {password:password,firstName:firstName}});
+        navigate("/PostTime", { state: {babysiter:babysiter}});
 }
 catch(err){
     console.log(err);
