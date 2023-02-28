@@ -9,6 +9,7 @@ import BabySiterGetById from './BabySiterGetById';
 import RegisterBabySiter from './RegisterBabySiter';
 import SearchBabySiterGetById from './SearchBabySiterGetById';
 import RegisterSearchBabySiter from './RegisterSearchBabySiter'; 
+import PostTime from './PostTime';
 const App = () => (
 
 
@@ -19,6 +20,7 @@ const App = () => (
     <Route path="/RegisterBabySiter" element={<RegisterBabySiter/>} />
     <Route path="/SearchBabySiterGetById" element={<SearchBabySiterGetById/>} />
     <Route path="/RegisterSearchBabySiter" element={<RegisterSearchBabySiter/>} />
+    <Route path="/PostTime" element={<PostTime/>} />
     
   </ Routes>
 </BrowserRouter>
