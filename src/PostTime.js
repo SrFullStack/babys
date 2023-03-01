@@ -1,22 +1,27 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Checkbox } from 'primereact/checkbox';
+
 
 export default function PostTime() {
 const [day,setDay]=useState("");
 const [TimeOfDay,setTimeOfDay]=useState("");
 const [rate,setrate]=useState("");
+const [neighborhood,setNeighborhood]=useState("");
 const location=useLocation();
 const {babysiter} = location.state;
-const [users, setUsers] = useState([]);
+const [isChecked, setIsChecked] = useState([]);
+const [id,setId] = useState(0);
 
 useEffect(() => {
     try{
        
-         axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${ babysiter.password}&Email=${babysiter.email}`)
+         axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${babysiter.password}&Email=${babysiter.email}`)
       
            .then(response =>{
-               alert(response.data.babysiterId);  
+
+            
            })
          
        }        
@@ -25,27 +30,29 @@ useEffect(() => {
            console.error(err);
        }
       
-  }, []); 
-}
+  }); 
+
 
 const PostTimeB= async()=>{
     let rat1=JSON.parse(rate);
-    
-   const time = {DAY:day,PartOfDay:TimeOfDay,PRICE:rat1};
+
+   const time = {BabysiterId:19, DAY:day,PartOfDay:TimeOfDay,PRICE:rat1};
 try{
   await axios.post(`https://localhost:44312/api/Time`, time)
        .then(response => (console.log(response.data.DAY)));
-    
+   alert("הפרטים נוספו בהצלחה") 
 }
 catch(err){
    console.log(err);
-}
-
+}}
+const handleOnChange = () => {
+  setIsChecked(!isChecked);
+};
     return (<div>
        
-    <h1>hello  {babysiter.FirstName}!!!!!!!!! enter time</h1>
+    <h1>hello  {babysiter.firstName}!!!!!!!!! enter time</h1>
 
-    {babysiter.BabysiterId}
+    {babysiter.babysiterId}
 
     <select  defaultValue={'DEFAULT'} value={day}  onChange={e => setDay(e.target.value)} >
     <option value="DEFAULT" disabled>Choose a day...</option>
@@ -68,10 +75,34 @@ catch(err){
   <option  value="evening">evening</option>
   <option value="night">night</option>
 </select>
-<input className="input" type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br>
 
+<label>רמות</label>
+<input type="checkbox" id="topping" name="topping" value="ramot" onChange={e =>setIsChecked([...isChecked,e.target.value])}/>
+<label>רמות</label>
+<input type="checkbox" id="topping" name="topping" value="t" onChange={e => setIsChecked([...isChecked,e.target.value])}/>
+<label>רמות</label>
+<input type="checkbox" id="topping" name="topping" value="y" onChange={e => setIsChecked([...isChecked,e.target.value])}/>  
 <button onClick={PostTimeB}>PostTimeB</button>
 
     </div>);
 };
 
+// onChange={e => setChecked(e.checked)} checked={checked}
+
+
+// const handleOnChange = () => {
+//   setIsChecked(!isChecked);
+// };
+
+// return (
+//   <div className="App">
+//     Select your pizza topping:
+//     <div className="topping">
+//       <input
+//         type="checkbox"
+//         id="topping"
+//         name="topping"
+//         value="Paneer"
+//         checked={isChecked}
+//         onChange={handleOnChange}
+//       />
