@@ -14,12 +14,16 @@ const navigate=useNavigate()
 
 const Register= async()=>{
      let age1=JSON.parse(age);
-     
-    const babysiter = {FirstName:firstName,LastName:lastName,Phone:phone,Age:age1, Email:email,Password:password,Description:description};
+     var babysiter;
+    const babysiterr = {FirstName:firstName,LastName:lastName,Phone:phone,Age:age1, Email:email,Password:password,Description:description};
 try{
-   await axios.post(`https://localhost:44312/api/BabySiter`, babysiter)
-        .then(response => setAge(response.data.age));
-        navigate("/PostTime", { state: {babysiter:babysiter}});
+   await axios.post(`https://localhost:44312/api/BabySiter`, babysiterr)
+   .then(response =>{
+    babysiter= response.data;  
+})
+
+
+navigate("/PostTime", { state: {babysiter:babysiter}});
 }
 catch(err){
     console.log(err);

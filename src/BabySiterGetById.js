@@ -16,7 +16,7 @@ export default function BabySiterGetById() {
      await axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${password}&Email=${email}`)
    
         .then(response =>{
-            alert(response.data.firstName);  
+            alert(response.data.babysiterId);  
         })
       
     }        
