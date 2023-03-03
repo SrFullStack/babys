@@ -18,9 +18,11 @@ useEffect(() => {
     try{
        
          axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${babysiter.password}&Email=${babysiter.email}`)
-      
            .then(response =>{
-
+     
+ setId(response.data.babysiterId)
+       
+// alert(id)
             
            })
          
@@ -31,12 +33,13 @@ useEffect(() => {
        }
       
   }); 
+ 
 
 
 const PostTimeB= async()=>{
     let rat1=JSON.parse(rate);
-
-   const time = {BabysiterId:19, DAY:day,PartOfDay:TimeOfDay,PRICE:rat1};
+let id1=JSON.parse(id);
+   const time = {BabysiterId:id1, DAY:day,PartOfDay:TimeOfDay,PRICE:rat1};
 try{
   await axios.post(`https://localhost:44312/api/Time`, time)
        .then(response => (console.log(response.data.DAY)));
@@ -48,6 +51,9 @@ catch(err){
 const handleOnChange = () => {
   setIsChecked(!isChecked);
 };
+const idh=()=>{
+  alert(id)
+}
     return (<div>
        
     <h1>hello  {babysiter.firstName}!!!!!!!!! enter time</h1>
@@ -82,8 +88,10 @@ const handleOnChange = () => {
 <input type="checkbox" id="topping" name="topping" value="t" onChange={e => setIsChecked([...isChecked,e.target.value])}/>
 <label>רמות</label>
 <input type="checkbox" id="topping" name="topping" value="y" onChange={e => setIsChecked([...isChecked,e.target.value])}/>  
-<button onClick={PostTimeB}>PostTimeB</button>
+<input className="input" type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br>
 
+<button onClick={PostTimeB}>PostTimeB</button>
+<button onClick={idh}>id</button>
     </div>);
 };
 

@@ -7,17 +7,29 @@ export default function RegisterSearchBabySiter() {
     const [email, setEmail] = useState("");
     const [firstName,setFirstName]=useState("");
     const[lastName,setLastName]=useState("");
-    const [age,setAge]=useState(0);
-    const [phone,setPhone]=useState(0);
-    const [description,setDescription]=useState("");
 
-const Register=()=>{
-    // const babysiter = {firstName:'firstName',lastName:"lastName",phone:"phone",age:"age", email:'email',password:"password",description:"description"};
-    // axios.post(`https://localhost:44312/api/BabySiter`, babysiter)
-    //     .then(response => setAge(response.data.age));
+    const [phone,setPhone]=useState("");
 
-}
-// https://jasonwatmore.com/post/2020/07/17/react-axios-http-post-request-examples
+
+    const Register= async()=>{
+       
+       const searchbabysiterr = {FirstName:firstName,LastName:lastName,Phone:phone, Email:email,Password:password};
+   try{
+      await axios.post(`https://localhost:44312/api/SearchBabySiter`, searchbabysiterr)
+      .then(response =>{
+        // searchbabysiterr= response.data;  
+      
+   })
+   alert("ברוכים הבאים נרשמת בהצלחה");
+   
+//    navigate("/PostTime", { state: {babysiter:babysiter}});
+   }
+   catch(err){
+       console.log(err);
+   }
+    }
+
+   // https://jasonwatmore.com/post/2020/07/17/react-axios-http-post-request-examples
 
     return (<div>
     <h1>RegisterSearchBabySiter</h1>
@@ -25,9 +37,7 @@ const Register=()=>{
     <input className="input" type="text" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
     <input className="input" type="text" placeholder='firstName' onChange={(e) => setFirstName(e.target.value)} /><br></br>
     <input className="input" type="text" placeholder='lastName' onChange={(e) => setLastName(e.target.value)} /><br></br>
-    <input className="input" type="number" placeholder='age' onChange={(e) => setAge(e.target.value)} /><br></br>
-    <input className="input" type="number" placeholder='phone' onChange={(e) => setPhone(e.target.value)} /><br></br>
-    <input className="input" type="text" placeholder='description' onChange={(e) => setDescription(e.target.value)} /><br></br>
+    <input className="input" type="text" placeholder='phone' onChange={(e) => setPhone(e.target.value)} /><br></br>
     <button onClick={Register}>Register</button>
     </div>);
 };
