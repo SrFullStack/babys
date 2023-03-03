@@ -16,8 +16,11 @@ export default function BabySiterGetById() {
      await axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${password}&Email=${email}`)
    
         .then(response =>{
-          if(response.data.babysiterId!=undefined)
+          if(response.data.babysiterId!=undefined){
             alert(response.data.babysiterId+"אתה שמור במערכת");  
+            
+navigate("/PostTime", { state: {babysiter:response.data}});
+          } 
             else{
               alert("הקוד או השם משתמש שגואים אם אינך קים אתה רשאי להרשם")
             }

@@ -43,8 +43,19 @@ let id1=JSON.parse(id);
 try{
   await axios.post(`https://localhost:44312/api/Time`, time)
        .then(response => (console.log(response.data.DAY)));
-   alert("הפרטים נוספו בהצלחה") 
+
+       alert("הפרטים נוספו בהצלחה") 
+   
+
+for (let index = 0; index < isChecked.length; index++) {
+  const i=JSON.parse(isChecked[index]);
+const neighborhoodbaby={BabysiterId:id1,NeighborhoodId:i}
+
+   await axios.post(`https://localhost:44312/api/NeighborhoodBabysiter`, neighborhoodbaby)
+       .then(response => (console.log(response.data.DAY)));
+  
 }
+      }
 catch(err){
    console.log(err);
 }}
@@ -83,11 +94,11 @@ const idh=()=>{
 </select>
 
 <label>רמות</label>
-<input type="checkbox" id="topping" name="topping" value="ramot" onChange={e =>setIsChecked([...isChecked,e.target.value])}/>
+<input type="checkbox" id="topping" name="topping" value="1" onChange={e =>setIsChecked([...isChecked,e.target.value])}/>
 <label>רמות</label>
-<input type="checkbox" id="topping" name="topping" value="t" onChange={e => setIsChecked([...isChecked,e.target.value])}/>
+<input type="checkbox" id="topping" name="topping" value="2" onChange={e => setIsChecked([...isChecked,e.target.value])}/>
 <label>רמות</label>
-<input type="checkbox" id="topping" name="topping" value="y" onChange={e => setIsChecked([...isChecked,e.target.value])}/>  
+<input type="checkbox" id="topping" name="topping" value="3" onChange={e => setIsChecked([...isChecked,e.target.value])}/>  
 <input className="input" type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br>
 
 <button onClick={PostTimeB}>PostTimeB</button>
