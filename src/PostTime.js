@@ -14,9 +14,14 @@ const {babysiter} = location.state;
 const [isChecked, setIsChecked] = useState([]);
 const [id,setId] = useState(0);
 
+
+// const filterDinamic=(object,value)=>{
+//   return babysiter.filter((b)=>{b[object]==value});
+// }
+// filterDinamic("adress","shalom sivan");
 useEffect(() => {
     try{
-       
+      
          axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${babysiter.password}&Email=${babysiter.email}`)
            .then(response =>{
      
@@ -66,7 +71,7 @@ const idh=()=>{
   alert(id)
 }
     return (<div>
-       
+      {/* <h1>{babySitters.map((b)=>{return <p>{b.name}</p>})}</h1> */}
     <h1>hello  {babysiter.firstName}!!!!!!!!! enter time</h1>
 
     {babysiter.babysiterId}
