@@ -2,17 +2,57 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-export default function GetallBaby() {
+import React from 'react';
 
-    const [search, setSearch] = useState({ typeId: -1, categoryId: -1, subCategoryId: -1, datePublished: null, startDate: null, endDate: null, common: "defaultValue" })
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@material-ui/core/TextField';
+// import Autocomplete from '@material-ui/lab/Autocomplete';
+
+
+// const Time = ({ babysitterTime }) => <>{babysitterTime.map((t) => <Typography>{t.day}</Typography>)}</>
+
+
+export default function GetallBaby() {
+    const [price, Setprice] = useState(-1)
+    const [age, SetAge] = useState(-1)
+    const [PartOfDay, SetPartOfDay] = useState("t")
+    const [neighborhood, Setneighborhood] = useState("t")
+    const [day, SetDay] = useState("t")
+   
     // const [babySitters, setBabySitters] = useState([{BabysiterId:-1,FirstName:"",LastName:"",Age:0,Email:"",Password:"",Description:"",Phone:""
     // ,times:[{TimeId:0,BabysiterId:0,Day:"",PartOfDay:"",Price:0}],NeighborhoodBabysiter:[{NeighborhoodBabysiterId:0,BabysiterId:0,NeighborhoodId:0}]}])
     const [baby, setbaby] = useState([])
-
+    const [loading, setLoading] = useState(false);
     const [babySitters, setBabySitters] = useState([]);
+    const [babysittersBySearch, setBabysittersBySearch] = useState([])
+    const top100Films = [
+        { title: 'The Shawshank Redemption', year: 1994 },
+        { title: 'The Godfather', year: 1972 },
+        { title: 'The Godfather: Part II', year: 1974 },
+        { title: 'The Dark Knight', year: 2008 },
+        { title: '12 Angry Men', year: 1957 },
+        { title: "Schindler's List", year: 1993 },
+        { title: 'Pulp Fiction', year: 1994 },
+        { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
+
+    ];
+    const bull = (
+        <Box
+            component="span"
+            sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+        >
+            •
+        </Box>
+    );
+
     useEffect(() => {
 
-        // setBabySitters({...babySitters,"BabysiterId":5})
+
         try {
             const updateUsers = [];
             var babySiterList = [];
@@ -23,15 +63,6 @@ export default function GetallBaby() {
                 .then(async (response) => {
 
                     babySiterList = response.data;
-                    // response.data.forEach(w => {
-                    //     setbaby([...baby,10])
-                    //     console.log(baby);  
-                    //     })
-                    // setbaby([...baby,10])
-                    // setbaby([...baby,10])
-
-                    //     console.log(baby); 
-
 
 
 
@@ -42,14 +73,16 @@ export default function GetallBaby() {
                             .then(response => response.data)
                         Neighborhood = await axios.get(`https://localhost:44312/api/NeighborhoodBabysiter/Get?id=${id}`)
                             .then(respon => respon.data)
-                        // var babySiter = b[babySiter[index], time[index], Neighborhood[index]]
+
                         babySiterList[index].Neighborhood = Neighborhood;
                         babySiterList[index].time = time
 
-                        // setBabySitters(a)
+
                         console.log(babySitters);
                     }
                     setBabySitters(babySiterList);
+                    setBabysittersBySearch(babySiterList);
+
                     // setBabySitters((prev)=>[
                     //         ...b
                     //     ]);
@@ -65,8 +98,75 @@ export default function GetallBaby() {
 
     }, []);
 
+const filter=()=>{
+    // if (!price) setBabysittersBySearch(babySitters)
+    const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))&& (bs.time.some(t => t.day <= day || day=="t"))
+    &&((bs.time.partOfDay==PartOfDay ||PartOfDay=="t")))
+    
+    // && ((bs.time.some(t => t.day <= day)||day==null ) )&&(bs => bs.age=age)||age==null)
+    setBabysittersBySearch(filteredByPrice)
+    // const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price) || price==null))
+    
+    
+    // setBabysittersBySearch(filteredByPrice)
+    // const filteredByAge = babySitters.filter(bs => bs.age=age)
+    // setBabysittersBySearch(filteredByAge)
+    // const filteredByDay = babySitters.filter(bs => bs.time.some(t => t.day <= day))
+    // setBabysittersBySearch(filteredByDay)
+    // const filteredByPartOfDay = babySitters.filter(bs => bs.time.some(t => t.price <= price))
+    // setBabysittersBySearch(filteredByPartOfDay)
+    // setBabysittersBySearch(filteredByAge,filteredByPrice,filteredByDay,filteredByPartOfDay)
+    // console.log(babysittersBySearch);
+}
+
+    // useEffect(() => {       
+    //      if (!price) setBabysittersBySearch(babySitters)
+    //     const filteredByPrice = babySitters.filter(bs => bs.time.some(t => t.price <= price))
+        
+    //     const filteredByAge = babySitters.filter(bs => bs.age=age)
+    //     setBabysittersBySearch(filteredByAge,filteredByPrice)
+    //     const filteredByDay = babySitters.filter(bs => bs.time.some(t => t.day <= day))
+    //     setBabysittersBySearch(filteredByDay)
+    //     const filteredByPartOfDay = babySitters.filter(bs => bs.time.some(t => t.price <= price))
+    //     setBabysittersBySearch(filteredByPartOfDay)
+    //     // const filteredByPrice = babySitters.filter(bs => bs.time.some(t => t.price <= price))
+    //     // setBabysittersBySearch(filteredByPrice)
+    // }, [price,age,PartOfDay,day,neighborhood])
+
     return (<div>
-{babySitters.map((babySiter,index)=><div key={index}>{babySiter.firstName}</div>)}
-        {/* <button onClick={t}>y</button> */}
-    </div>);
+        {babySitters.map((babySiter, index) => <div key={index}>{babySiter.firstName}שם:{babySiter.age}age{babySiter.time.map((t, i) => <div key={i}>{t.day}יום:</div>)}
+            {babySiter.Neighborhood.map((n, i) => <div key={i}>{n.neighborhoodId}id:</div>)}</div>)}
+        {babysittersBySearch.map((bs) => {
+            return <Card sx={{ minWidth: 20 }}>
+                <CardContent>
+                    <Typography variant='h1' sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        {bs.firstName}
+                      <h1>age</h1>  {bs.age}
+                    </Typography>
+                    {bs.time.map((t) => <Typography>{t.day}</Typography>)}
+                    {bs.Neighborhood.map((t) => <Typography>{t.neighborhoodId}</Typography>)}
+                
+                </CardContent>
+            </Card>
+        })}
+
+
+
+        {/* <Autocomplete
+      id="combo-box-demo"
+      options={top100Films}
+      getOptionLabel={(option) => option.title}
+      style={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
+    /> */}
+      
+        <input className="input" type="number" placeholder='price' onChange={(e) => Setprice(e.target.value)} /><br></br>
+        <input className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
+        <input className="input" type="text" placeholder='day' onChange={(e) => SetDay(e.target.value)} /><br></br>
+        <input className="input" type="text" placeholder='PartOfDay' onChange={(e) => SetPartOfDay(e.target.value)} /><br></br>
+         <input className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>   
+         <button onClick={filter}>חפש</button>
+         </div>);
+
 };
+
