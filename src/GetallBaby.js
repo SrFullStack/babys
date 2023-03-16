@@ -10,9 +10,11 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
 
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 // const Time = ({ babysitterTime }) => <>{babysitterTime.map((t) => <Typography>{t.day}</Typography>)}</>
 
@@ -30,17 +32,7 @@ export default function GetallBaby() {
     const [loading, setLoading] = useState(false);
     const [babySitters, setBabySitters] = useState([]);
     const [babysittersBySearch, setBabysittersBySearch] = useState([])
-    const top100Films = [
-        { title: 'The Shawshank Redemption', year: 1994 },
-        { title: 'The Godfather', year: 1972 },
-        { title: 'The Godfather: Part II', year: 1974 },
-        { title: 'The Dark Knight', year: 2008 },
-        { title: '12 Angry Men', year: 1957 },
-        { title: "Schindler's List", year: 1993 },
-        { title: 'Pulp Fiction', year: 1994 },
-        { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
 
-    ];
     const bull = (
         <Box
             component="span"
@@ -102,6 +94,8 @@ const filter=()=>{
     // if (!price) setBabysittersBySearch(babySitters)
     const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))&& (bs.time.some(t => t.day <= day || day=="t"))
     &&((bs.time.partOfDay==PartOfDay ||PartOfDay=="t")))
+    // const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))
+    // )
     
     // && ((bs.time.some(t => t.day <= day)||day==null ) )&&(bs => bs.age=age)||age==null)
     setBabysittersBySearch(filteredByPrice)
@@ -134,33 +128,43 @@ const filter=()=>{
     // }, [price,age,PartOfDay,day,neighborhood])
 
     return (<div>
-        {babySitters.map((babySiter, index) => <div key={index}>{babySiter.firstName}שם:{babySiter.age}age{babySiter.time.map((t, i) => <div key={i}>{t.day}יום:</div>)}
-            {babySiter.Neighborhood.map((n, i) => <div key={i}>{n.neighborhoodId}id:</div>)}</div>)}
+        {/* {babySitters.map((babySiter, index) => <div key={index}>{babySiter.firstName}שם:{babySiter.age}age{babySiter.time.map((t, i) => <div key={i}>{t.day}יום:</div>)}
+            {babySiter.Neighborhood.map((n, i) => <div key={i}>{n.neighborhoodId}id:</div>)}</div>)} */}
         {babysittersBySearch.map((bs) => {
-            return <Card sx={{ minWidth: 20 }}>
+            // return <Card sx={{ minWidth: 2 }} sx={{color:'red'}}   sx={{ border: 15 }}sx={{  width: ['100%', '50%', '25%'], }}
+            return <Card  sx={{
+            div: {
+                  backgroundColor: 'red',
+                  border: 5,
+                  width: ['100%', '50%', '25%'],
+                  padding: 3,
+                },
+              }}
+             >
                 <CardContent>
-                    <Typography variant='h1' sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                    <Typography sx={{ fontSize: 12 }}   gutterBottom>
                         {bs.firstName}
                       <h1>age</h1>  {bs.age}
                     </Typography>
                     {bs.time.map((t) => <Typography>{t.day}</Typography>)}
                     {bs.Neighborhood.map((t) => <Typography>{t.neighborhoodId}</Typography>)}
-                
+                 
                 </CardContent>
             </Card>
         })}
 
 
 
-        {/* <Autocomplete
-      id="combo-box-demo"
-      options={top100Films}
-      getOptionLabel={(option) => option.title}
-      style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
-    /> */}
-      
-        <input className="input" type="number" placeholder='price' onChange={(e) => Setprice(e.target.value)} /><br></br>
+<Autocomplete
+  disablePortal
+  id="combo-box-demo"
+  options={top100Films}
+  sx={{ width: 200 }}
+renderInput={(params) => <TextField {...params} label="price" onChange={(e) => Setprice(e.target.value)}/>}
+
+/>
+
+        {/* <input className="input" type="number" placeholder='price' onChange={(e) => Setprice(e.target.value)} /><br></br> */}
         <input className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
         <input className="input" type="text" placeholder='day' onChange={(e) => SetDay(e.target.value)} /><br></br>
         <input className="input" type="text" placeholder='PartOfDay' onChange={(e) => SetPartOfDay(e.target.value)} /><br></br>
@@ -170,3 +174,7 @@ const filter=()=>{
 
 };
 
+const top100Films = [
+    { label: '2'},
+    { label: '10'},
+]
