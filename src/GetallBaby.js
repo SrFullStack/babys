@@ -22,9 +22,9 @@ import Autocomplete from '@mui/material/Autocomplete';
 export default function GetallBaby() {
     const [price, Setprice] = useState(-1)
     const [age, SetAge] = useState(-1)
-    const [PartOfDay, SetPartOfDay] = useState("t")
-    const [neighborhood, Setneighborhood] = useState("t")
-    const [day, SetDay] = useState("t")
+    const [PartOfDay, SetPartOfDay] = useState("")
+    const [neighborhood, Setneighborhood] = useState("")
+    const [day, SetDay] = useState("")
    
     // const [babySitters, setBabySitters] = useState([{BabysiterId:-1,FirstName:"",LastName:"",Age:0,Email:"",Password:"",Description:"",Phone:""
     // ,times:[{TimeId:0,BabysiterId:0,Day:"",PartOfDay:"",Price:0}],NeighborhoodBabysiter:[{NeighborhoodBabysiterId:0,BabysiterId:0,NeighborhoodId:0}]}])
@@ -92,8 +92,8 @@ export default function GetallBaby() {
 
 const filter=()=>{
     // if (!price) setBabysittersBySearch(babySitters)
-    const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))&& (bs.time.some(t => t.day <= day || day=="t"))
-    &&((bs.time.partOfDay==PartOfDay ||PartOfDay=="t")))
+    const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))&& (bs.time.some(t => t.day <= day || day==""))
+    &&((bs.time.partOfDay==PartOfDay ||PartOfDay=="")))
     // const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))
     // )
     
@@ -143,11 +143,12 @@ const filter=()=>{
              >
                 <CardContent>
                     <Typography sx={{ fontSize: 12 }}   gutterBottom>
-                        {bs.firstName}
-                      <h1>age</h1>  {bs.age}
+                       firstName: {bs.firstName}
+                       <br></br>
+                     age:  {bs.age}
                     </Typography>
-                    {bs.time.map((t) => <Typography>{t.day}</Typography>)}
-                    {bs.Neighborhood.map((t) => <Typography>{t.neighborhoodId}</Typography>)}
+                    {bs.time.map((t) => <Typography>day:{t.day}</Typography>)}
+                    {bs.Neighborhood.map((t) => <Typography>neighborhood:{t.neighborhoodId}</Typography>)}
                  
                 </CardContent>
             </Card>
