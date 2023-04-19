@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import AddReqeust from "./AddReqeust";
 
 // const Time = ({ babysitterTime }) => <>{babysitterTime.map((t) => <Typography>{t.day}</Typography>)}</>
 
@@ -25,7 +26,7 @@ export default function GetallBaby() {
     const [PartOfDay, SetPartOfDay] = useState("")
     const [neighborhood, Setneighborhood] = useState("")
     const [day, SetDay] = useState("")
-   
+    const navigate=useNavigate();
     // const [babySitters, setBabySitters] = useState([{BabysiterId:-1,FirstName:"",LastName:"",Age:0,Email:"",Password:"",Description:"",Phone:""
     // ,times:[{TimeId:0,BabysiterId:0,Day:"",PartOfDay:"",Price:0}],NeighborhoodBabysiter:[{NeighborhoodBabysiterId:0,BabysiterId:0,NeighborhoodId:0}]}])
     const [baby, setbaby] = useState([])
@@ -126,7 +127,10 @@ const filter=()=>{
     //     // const filteredByPrice = babySitters.filter(bs => bs.time.some(t => t.price <= price))
     //     // setBabysittersBySearch(filteredByPrice)
     // }, [price,age,PartOfDay,day,neighborhood])
-
+  
+    const RegisterSearchBabySiter=()=>{
+        navigate("/SearchBabySiterGetById")
+      }
     return (<div>
         {/* {babySitters.map((babySiter, index) => <div key={index}>{babySiter.firstName}שם:{babySiter.age}age{babySiter.time.map((t, i) => <div key={i}>{t.day}יום:</div>)}
             {babySiter.Neighborhood.map((n, i) => <div key={i}>{n.neighborhoodId}id:</div>)}</div>)} */}
@@ -171,6 +175,8 @@ renderInput={(params) => <TextField {...params} label="price" onChange={(e) => S
         <input className="input" type="text" placeholder='PartOfDay' onChange={(e) => SetPartOfDay(e.target.value)} /><br></br>
          <input className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>   
          <button onClick={filter}>חפש</button>
+         <button onClick={RegisterSearchBabySiter}>RegisterSearchBabySiter</button>
+         
          </div>);
 
 };

@@ -100,9 +100,9 @@ const idh=()=>{
 
 <label>רמות</label>
 <input type="checkbox" id="topping" name="topping" value="1" onChange={e =>setIsChecked([...isChecked,e.target.value])}/>
-<label>רמות</label>
+<label>רמת שלמה</label>
 <input type="checkbox" id="topping" name="topping" value="2" onChange={e => setIsChecked([...isChecked,e.target.value])}/>
-<label>רמות</label>
+<label>בית וגן</label>
 <input type="checkbox" id="topping" name="topping" value="3" onChange={e => setIsChecked([...isChecked,e.target.value])}/>  
 <input className="input" type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br>
 

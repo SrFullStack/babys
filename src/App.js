@@ -11,6 +11,7 @@ import SearchBabySiterGetById from './SearchBabySiterGetById';
 import RegisterSearchBabySiter from './RegisterSearchBabySiter'; 
 import PostTime from './PostTime';
 import GetallBaby from './GetallBaby';
+import AddReqeust from './AddReqeust'; 
 const App = () => (
 
 
@@ -23,7 +24,7 @@ const App = () => (
     <Route path="/RegisterSearchBabySiter" element={<RegisterSearchBabySiter/>} />
     <Route path="/PostTime" element={<PostTime/>} />
     <Route path="/GetallBaby" element={<GetallBaby/>} />
-    
+    <Route path="/AddReqeust" element={<AddReqeust/>} />
   </ Routes>
 </BrowserRouter>
 

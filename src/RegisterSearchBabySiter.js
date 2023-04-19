@@ -9,7 +9,7 @@ export default function RegisterSearchBabySiter() {
     const[lastName,setLastName]=useState("");
 
     const [phone,setPhone]=useState("");
-
+    const navigate=useNavigate();
 
     const Register= async()=>{
        
@@ -18,10 +18,11 @@ export default function RegisterSearchBabySiter() {
       await axios.post(`https://localhost:44312/api/SearchBabySiter`, searchbabysiterr)
       .then(response =>{
         // searchbabysiterr= response.data;  
+        console.log(response.data);
       
    })
    alert("ברוכים הבאים נרשמת בהצלחה");
-   
+   navigate("/AddReqeust")
 //    navigate("/PostTime", { state: {babysiter:babysiter}});
    }
    catch(err){
