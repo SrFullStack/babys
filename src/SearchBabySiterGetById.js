@@ -13,8 +13,10 @@ export default function SearchBabySiterGetById() {
      await axios.get(`https://localhost:44312/api/SearchBabySiter/Get?Password=${password}&Email=${email}`)
         .then(response =>{
             alert(response.data.firstName+"את שמורה במערכת");  
+            navigate("/AddReqeust", { state: {SearchBabysiter:response.data}});
+          
         })
-      
+     
     }        
     
     catch (err) {
