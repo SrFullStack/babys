@@ -35,7 +35,7 @@ const handleOnChange = () => {
 
 // console.log(timeToAdd);
 // console.log(props.id)
-
+//
     let rat1 = JSON.parse(timeToAdd.rate);
 //צריך לבדוק איך מעבירים את id
     //let id1 = JSON.parse(id);
