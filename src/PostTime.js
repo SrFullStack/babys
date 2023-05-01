@@ -28,8 +28,6 @@ export default function PostTime(props) {
 // }
   useEffect(() => {
     try {
-      console.log(props.timeToAdd)
-
       axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${babysiter.password}&Email=${babysiter.email}`)
         .then(response => {
 
@@ -37,14 +35,10 @@ export default function PostTime(props) {
 
           // alert(id)
 
-        })
-
-    }
-
+        })}
     catch (err) {
       console.error(err);
     }
-
   });
 
 
@@ -81,7 +75,7 @@ export default function PostTime(props) {
     alert(id)
   }
   const finish = ()=> {
-    <AddTimeForm> </AddTimeForm>
+    return <AddTimeForm> </AddTimeForm>
   }
   return (
   
@@ -91,7 +85,7 @@ export default function PostTime(props) {
 
     {babysiter.babysiterId}
     {/* {Array(numberOfForms).map((_, index) => <AddTimeForm key={index} addBabysitterTime={(bt) => setBabysitterTimes([...babysitterTimes, bt])} />)} */}
-<AddTimeForm  addBabysitterTime={(bt) => setBabysitterTimes([...babysitterTimes, bt])}></AddTimeForm>
+    <AddTimeForm  addBabysitterTime={(bt) => setBabysitterTimes([...babysitterTimes, bt])}></AddTimeForm>
     {/* <select defaultValue={'DEFAULT'} value={day} onChange={e => setDay(e.target.value)} >
       <option value="DEFAULT" disabled>Choose a day...</option>
       <option value="Sunday" >Sunday </option>

@@ -41,7 +41,8 @@ const handleOnChange = () => {
     //let id1 = JSON.parse(id);
 
     alert(timeToAdd.timeOfDay[0]);
-    const time = { BabysiterId: 1, DAY: "timeToAdd.day", PartOfDay: timeToAdd.timeOfDay[0], PRICE: rat1 };
+    const time = { BabysiterId: 19
+      , DAY: "timeToAdd.day", PartOfDay: timeToAdd.timeOfDay[0], PRICE: rat1 };
     try {
       await axios.post(`https://localhost:44312/api/Time`, time)
         .then(response => (console.log(response.data.DAY)));
