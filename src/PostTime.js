@@ -5,7 +5,7 @@ import { Checkbox } from 'primereact/checkbox';
 import AddTimeForm from "./AddTimeForm";
 
 
-export default function PostTime() {
+export default function PostTime(props) {
   const emptyDay={ day: '', timeOfDay: [], rate: '', neighborhood: [] }
   const [babysitterTimes, setBabysitterTimes] = useState([emptyDay])
   const [day, setDay] = useState("");
@@ -14,7 +14,7 @@ export default function PostTime() {
   const [neighborhood, setNeighborhood] = useState("");
   const location = useLocation();
   const { babysiter } = location?.state;
-  const [isChecked, setIsChecked] = useState([]);
+  // const [isChecked, setIsChecked] = useState([]);
   const [id, setId] = useState(0);
   const [numberOfForms, setNumberOfForms] = useState(1)
 
@@ -23,8 +23,12 @@ export default function PostTime() {
   //   return babysiter.filter((b)=>{b[object]==value});
   // }
   // filterDinamic("adress","shalom sivan");
+//   const func=()=>{
+//     <AddTimeForm id={id}></AddTimeForm>
+// }
   useEffect(() => {
     try {
+      console.log(props.timeToAdd)
 
       axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${babysiter.password}&Email=${babysiter.email}`)
         .then(response => {
@@ -45,37 +49,43 @@ export default function PostTime() {
 
 
 
-  const PostTimeB = async () => {
-    let rat1 = JSON.parse(rate);
-    let id1 = JSON.parse(id);
-    const time = { BabysiterId: id1, DAY: day, PartOfDay: TimeOfDay, PRICE: rat1 };
-    try {
-      await axios.post(`https://localhost:44312/api/Time`, time)
-        .then(response => (console.log(response.data.DAY)));
+  // const PostTimeB = async () => {
+  //   alert(rate);
+  //   let rat1 = JSON.parse(rate);
+  //   let id1 = JSON.parse(id);
+  //   const time = { BabysiterId: id1, DAY: day, PartOfDay: TimeOfDay, PRICE: rat1 };
+  //   try {
+  //     await axios.post(`https://localhost:44312/api/Time`, time)
+  //       .then(response => (console.log(response.data.DAY)));
 
-      alert("הפרטים נוספו בהצלחה")
+  //     alert("הפרטים נוספו בהצלחה")
 
 
-      for (let index = 0; index < isChecked.length; index++) {
-        const i = JSON.parse(isChecked[index]);
-        const neighborhoodbaby = { BabysiterId: id1, NeighborhoodId: i }
+  //     for (let index = 0; index < isChecked.length; index++) {
+  //       const i = JSON.parse(isChecked[index]);
+  //       const neighborhoodbaby = { BabysiterId: id1, NeighborhoodId: i }
 
-        await axios.post(`https://localhost:44312/api/NeighborhoodBabysiter`, neighborhoodbaby)
-          .then(response => (console.log(response.data.DAY)));
+  //       await axios.post(`https://localhost:44312/api/NeighborhoodBabysiter`, neighborhoodbaby)
+  //         .then(response => (console.log(response.data.DAY)));
 
-      }
-    }
-    catch (err) {
-      console.log(err);
-    }
-  }
+  //     }
+  //   }
+  //   catch (err) {
+  //     console.log(err);
+  //   }
+  // }
   const handleOnChange = () => {
     setIsChecked(!isChecked);
   };
   const idh = () => {
     alert(id)
   }
-  return (<div>
+  const finish = ()=> {
+    <AddTimeForm> </AddTimeForm>
+  }
+  return (
+  
+  <div>
     {/* <h1>{babySitters.map((b)=>{return <p>{b.name}</p>})}</h1> */}
     <h1>hello  {babysiter.firstName}!!!!!!!!! enter time</h1>
 
@@ -112,8 +122,11 @@ export default function PostTime() {
     <input type="checkbox" id="topping" name="topping" value="3" onChange={e => setIsChecked([...isChecked, e.target.value])} />
     <input className="input" type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br> */}
 
-    <button onClick={PostTimeB}>PostTimeB</button>
+    {/* <button onClick={PostTimeB}>PostTimeB</button> */}
     <button onClick={idh}>id</button>
+    <button onClick={finish}>finish</button>
+    {/* <button  onClick={func}>ok</button> */}
+
   </div>);
 };
 
