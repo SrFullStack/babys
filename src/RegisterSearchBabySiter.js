@@ -22,7 +22,7 @@ export default function RegisterSearchBabySiter() {
       
    })
    alert("ברוכים הבאים נרשמת בהצלחה");
-   navigate("/AddReqeust")
+   navigate("/AddReqeust",{state:{Searchbabysiterr:searchbabysiterr}})
 //    navigate("/PostTime", { state: {babysiter:babysiter}});
    }
    catch(err){

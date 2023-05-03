@@ -10,7 +10,9 @@ export default function AddReqeust() {
     const [rate,setrate]=useState("");
     const [Neighborhood,setNeighborhood]=useState("");
     const [id,setid]=useState("");
+     const [linkTo, setLinkTo] = useState("");
 
+    
     useEffect(() => {
 
         try {
@@ -29,7 +31,12 @@ export default function AddReqeust() {
         }
 
     }, []);
-    
+    const sendLink = () => {
+        axios.get( `https://localhost:44312/api/RequsetSearchBabysiter/GetEmail?email=${linkTo}`)
+            .then(res => {
+                const data1 = res.data;
+            })
+        }
 const PostSearchBabySiter= async()=>{
 
    const SearchBabysiter = {SearchBabysiterId:id,NeighborhoodId:Neighborhood,Day:day,PartOfDay:TimeOfDay,Price:rate};
@@ -79,7 +86,15 @@ catch(err){
 
 <input className="input" type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br>
 <button onClick={PostSearchBabySiter}>PostSearchBabySiter</button>
-
+<button onClick={sendLink} > email שלח</button>  
+<input onChange={(e)=> setLinkTo(e.target.value)} placeholder="email"></input>
+            
+           
+         
+           
     </div>);
 };
+
+
+
 
