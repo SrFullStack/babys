@@ -10,7 +10,33 @@ export default function RegisterSearchBabySiter() {
 
     const [phone,setPhone]=useState("");
     const navigate=useNavigate();
+    // axios.get(`https://localhost:44312/api/BabySiter/GetAll`)
+    // .then(async (response) => {
+        const check =async ()=>{
+            try{
+         
+              await axios.get(`https://localhost:44312/api/SearchBabySiter/Get?Password=${password}&Email=${email}`)
+            
+                 .then(response =>{
+                    
+                   if(response.data!=""){
+                     alert("משתמש זה קיים אנא בחר סיסמה אחרת");  
+                     
+                   } 
+                     else{
+                        Register();
+                     }
+                 })
+               
+             }        
+             
+             catch (err) {
+                 console.error(err);
+             }
+         }
+    // const check=async()=>{
 
+    // }
     const Register= async()=>{
        
        const searchbabysiterr = {FirstName:firstName,LastName:lastName,Phone:phone, Email:email,Password:password};
@@ -22,7 +48,9 @@ export default function RegisterSearchBabySiter() {
       
    })
    alert("ברוכים הבאים נרשמת בהצלחה");
-   navigate("/AddReqeust",{state:{Searchbabysiterr:searchbabysiterr}})
+    navigate("/AddReqeust",{state:{searchbabysiterr:searchbabysiterr}})
+
+
 //    navigate("/PostTime", { state: {babysiter:babysiter}});
    }
    catch(err){
@@ -39,7 +67,7 @@ export default function RegisterSearchBabySiter() {
     <input className="input" type="text" placeholder='firstName' onChange={(e) => setFirstName(e.target.value)} /><br></br>
     <input className="input" type="text" placeholder='lastName' onChange={(e) => setLastName(e.target.value)} /><br></br>
     <input className="input" type="text" placeholder='phone' onChange={(e) => setPhone(e.target.value)} /><br></br>
-    <button onClick={Register}>Register</button>
+    <button onClick={check}>Register</button>
     </div>);
 };
 

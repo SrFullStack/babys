@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 export default function AddReqeust() {
     const location=useLocation();
-    const {SearchBabysiter} = location.state;
+    const {searchbabysiterr} = location?.state;
     const [TimeOfDay,setTimeOfDay]=useState("");
     const [day,setDay]=useState("");
     const [rate,setrate]=useState("");
@@ -16,9 +16,8 @@ export default function AddReqeust() {
     useEffect(() => {
 
         try {
-            axios.get(`https://localhost:44312/api/SearchBabySiter/Get?password=${SearchBabysiter.password}&Email=${SearchBabysiter.email}`)
-                .then( (response) => {
-               
+            axios.get(`https://localhost:44312/api/SearchBabySiter/Get?password=${searchbabysiterr.password}&Email=${searchbabysiterr.email}`)
+                .then( (response) => {               
                    setid(response.data.searchBabysiterId);
                 });
 
@@ -52,8 +51,8 @@ catch(err){
 }
 
     return (<div>
-        ll
-{SearchBabysiter.email}
+        hello
+{searchbabysiterr.email}
 <select  defaultValue={'DEFAULT'} value={TimeOfDay} onChange={e => setTimeOfDay(e.target.value)} >
 
 <option value="DEFAULT" disabled>Choose a time of the day...</option>
