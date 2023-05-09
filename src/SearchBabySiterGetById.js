@@ -26,6 +26,9 @@ export default function SearchBabySiterGetById() {
 const RegisterSearchBabySiter=()=>{
   navigate("/RegisterSearchBabySiter")
 }
+const Opinion=()=>{
+  navigate("/Opinion")
+}
     return (
 
       <div>
@@ -34,6 +37,8 @@ const RegisterSearchBabySiter=()=>{
        <input className="input" type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
        <button onClick={SearchBabySiterGetById}>SearchBabySiterGetById</button>
        <button onClick={RegisterSearchBabySiter}>RegisterSearchBabySiter</button>
+              <button onClick={Opinion}>Opinion</button>
+
       </div>
     )
   }

@@ -38,6 +38,8 @@ const handleOnChange = () => {
 //
     let rat1 = JSON.parse(timeToAdd.rate);
 //צריך לבדוק איך מעבירים את id
+//שלא יהיה פעמים במערך 
+//SEARCHBABY DTOלסד 
     //let id1 = JSON.parse(id);
 
     alert(timeToAdd.timeOfDay[0]);
