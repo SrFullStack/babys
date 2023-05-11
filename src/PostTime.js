@@ -6,7 +6,7 @@ import AddTimeForm from "./AddTimeForm";
 
 
 export default function PostTime(props) {
-  const emptyDay={ day: '', timeOfDay: [], rate: '', neighborhood: [] }
+  const emptyDay = { day: '', timeOfDay: [], rate: '', neighborhood: [] }
   const [babysitterTimes, setBabysitterTimes] = useState([emptyDay])
   const [day, setDay] = useState("");
   const [TimeOfDay, setTimeOfDay] = useState("");
@@ -16,16 +16,16 @@ export default function PostTime(props) {
   const { babysiter } = location?.state;
   // const [isChecked, setIsChecked] = useState([]);
   const [id, setId] = useState(0);
-  const [numberOfForms, setNumberOfForms] = useState(1)
+  const [numberOfForms, setNumberOfForms] = useState([<AddTimeForm babysiterId={id} key={0}/>])
 
 
   // const filterDinamic=(object,value)=>{
   //   return babysiter.filter((b)=>{b[object]==value});
   // }
   // filterDinamic("adress","shalom sivan");
-//   const func=()=>{
-//     <AddTimeForm id={id}></AddTimeForm>
-// }
+  //   const func=()=>{
+  //     <AddTimeForm id={id}></AddTimeForm>
+  // }
   useEffect(() => {
     try {
       axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${babysiter.password}&Email=${babysiter.email}`)
@@ -35,7 +35,8 @@ export default function PostTime(props) {
 
           // alert(id)
 
-        })}
+        })
+    }
     catch (err) {
       console.error(err);
     }
@@ -74,19 +75,19 @@ export default function PostTime(props) {
   const idh = () => {
     alert(id)
   }
-  const finish = ()=> {
-    return <AddTimeForm> </AddTimeForm>
+  const finish = () => {
+    setNumberOfForms((prev) => [...prev, <AddTimeForm babysiterId={id} key={prev.length} />])
   }
   return (
-  
-  <div>
-    {/* <h1>{babySitters.map((b)=>{return <p>{b.name}</p>})}</h1> */}
-    <h1>hello  {babysiter.firstName}!!!!!!!!! enter time</h1>
 
-    {babysiter.babysiterId}
-    {/* {Array(numberOfForms).map((_, index) => <AddTimeForm key={index} addBabysitterTime={(bt) => setBabysitterTimes([...babysitterTimes, bt])} />)} */}
-    <AddTimeForm  addBabysitterTime={(bt) => setBabysitterTimes([...babysitterTimes, bt])}></AddTimeForm>
-    {/* <select defaultValue={'DEFAULT'} value={day} onChange={e => setDay(e.target.value)} >
+    <div>
+      {/* <h1>{babySitters.map((b)=>{return <p>{b.name}</p>})}</h1> */}
+      <h1>hello  {babysiter.firstName}!!!!!!!!! enter time</h1>
+
+      {id}
+      {/* {Array(numberOfForms).map((_, index) => <AddTimeForm key={index} addBabysitterTime={(bt) => setBabysitterTimes([...babysitterTimes, bt])} />)} */}
+      {numberOfForms}
+      {/* <select defaultValue={'DEFAULT'} value={day} onChange={e => setDay(e.target.value)} >
       <option value="DEFAULT" disabled>Choose a day...</option>
       <option value="Sunday" >Sunday </option>
       <option value="Monday">Monday</option>
@@ -116,12 +117,12 @@ export default function PostTime(props) {
     <input type="checkbox" id="topping" name="topping" value="3" onChange={e => setIsChecked([...isChecked, e.target.value])} />
     <input className="input" type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br> */}
 
-    {/* <button onClick={PostTimeB}>PostTimeB</button> */}
-    <button onClick={idh}>id</button>
-    <button onClick={finish}>finish</button>
-    {/* <button  onClick={func}>ok</button> */}
-
-  </div>);
+      {/* <button onClick={PostTimeB}>PostTimeB</button> */}
+      <button onClick={idh}>id</button>
+      <button onClick={finish}>finish</button>
+      {/* <button  onClick={func}>ok</button> */}
+     
+    </div>);
 };
 
 // onChange={e => setChecked(e.checked)} checked={checked}
