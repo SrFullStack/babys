@@ -4,14 +4,14 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Checkbox } from 'primereact/checkbox';
 
-const AddTimeForm = ({ babysiterId }) => {
+const AddTimeForm = ({ babysiterId, m }) => {
   // const [day, setDay] = useState("");
   // const [TimeOfDay, setTimeOfDay] = useState("");
   // const [rate, setrate] = useState("");
   // const [neighborhood, setNeighborhood] = useState("");
-  console.log('BabysiterId', babysiterId)
+  console.log('m', m)
 
-  const [timeToAdd, setTimeToAdd] = useState({ day:[], timeOfDay: [], neighborhood: [], rate: "" })
+  const [timeToAdd, setTimeToAdd] = useState({ day: [], timeOfDay: [], neighborhood: [], rate: "" })
   const neighborhoods = [{ id: 1, name: "רמות" }, { id: 2, name: "רמת שלמה" }]
   const [id, setId] = useState(0);
   const [isChecked, setIsChecked] = useState([]);
@@ -38,6 +38,8 @@ const AddTimeForm = ({ babysiterId }) => {
     // console.log(timeToAdd);
     // console.log(props.id)
     //
+
+    console.log({ rate: timeToAdd.rate });
     let rat1 = JSON.parse(timeToAdd.rate);
     //צריך לבדוק איך מעבירים את id
     //שלא יהיה פעמים במערך 
@@ -45,9 +47,9 @@ const AddTimeForm = ({ babysiterId }) => {
     //let id1 = JSON.parse(id);
 
     alert(timeToAdd.day);
- 
+
     const time = {
-      BabysiterId: 93, DAY: timeToAdd.day[0], PartOfDay: timeToAdd.timeOfDay[0], PRICE: rat1
+      BabysiterId: babysiterId, DAY: timeToAdd.day[0], PartOfDay: timeToAdd.timeOfDay[0], PRICE: rat1
     };
     try {
       await axios.post(`https://localhost:44312/api/Time`, time)
@@ -59,7 +61,7 @@ const AddTimeForm = ({ babysiterId }) => {
 
       for (let index = 0; index < timeToAdd.neighborhood.length; index++) {
         const i = JSON.parse(timeToAdd.neighborhood[index]);
-        const neighborhoodbaby = { BabysiterId: 93, NeighborhoodId: i }
+        const neighborhoodbaby = { BabysiterId: babysiterId, NeighborhoodId: i }
 
         await axios.post(`https://localhost:44312/api/NeighborhoodBabysiter`, neighborhoodbaby)
           .then(response => (console.log(response.data.DAY)));

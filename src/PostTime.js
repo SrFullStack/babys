@@ -16,8 +16,13 @@ export default function PostTime(props) {
   const { babysiter } = location?.state;
   // const [isChecked, setIsChecked] = useState([]);
   const [id, setId] = useState(0);
-  const [numberOfForms, setNumberOfForms] = useState([<AddTimeForm babysiterId={id} key={0}/>])
+  const [numberOfForms, setNumberOfForms] = useState([])
+  const [m, setm] = useState("wer");
 
+  useEffect(() => {
+    console.log({ id });
+    setNumberOfForms([<AddTimeForm babysiterId={id} m={m} key={0} />])
+  }, [id])
 
   // const filterDinamic=(object,value)=>{
   //   return babysiter.filter((b)=>{b[object]==value});
@@ -121,7 +126,7 @@ export default function PostTime(props) {
       <button onClick={idh}>id</button>
       <button onClick={finish}>finish</button>
       {/* <button  onClick={func}>ok</button> */}
-     
+
     </div>);
 };
 
