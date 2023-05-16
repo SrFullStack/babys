@@ -45,6 +45,7 @@ export default function PostTime(props) {
     catch (err) {
       console.error(err);
     }
+//idh();
   });
 
 
@@ -78,7 +79,19 @@ export default function PostTime(props) {
     setIsChecked(!isChecked);
   };
   const idh = () => {
-    alert(id)
+    
+    try {
+      axios.get(`https://localhost:44312/api/Neighborhood`)
+        .then(response => {
+       alert(response.data[0].neighborhoodName)
+
+          // alert(id)
+
+        })
+    }
+    catch (err) {
+      console.error(err);
+    }
   }
   const finish = () => {
     setNumberOfForms((prev) => [...prev, <AddTimeForm babysiterId={id} key={prev.length} />])
