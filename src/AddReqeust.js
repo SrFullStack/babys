@@ -16,7 +16,7 @@ export default function AddReqeust() {
     useEffect(() => {
 
         try {
-            axios.get(`https://localhost:44312/api/SearchBabySiter/Get?password=${searchbabysiterr.password}&Email=${searchbabysiterr.email}`)
+            axios.get(`https://localhost:44312/api/SearchBabySiter/Get?password=${searchbabysiterr.Password}&Email=${searchbabysiterr.Email}`)
                 .then( (response) => {               
                    setid(response.data.searchBabysiterId);
                 });
@@ -37,8 +37,8 @@ export default function AddReqeust() {
             })
         }
 const PostSearchBabySiter= async()=>{
-
-   const SearchBabysiter = {SearchBabysiterId:id,NeighborhoodId:Neighborhood,Day:day,PartOfDay:TimeOfDay,Price:rate};
+let rate1=JSON.parse(rate);
+   const SearchBabysiter = {SearchBabysiterId:id,NeighborhoodId:1,Day:day,PartOfDay:TimeOfDay,Price:rate1};
 try{
   await axios.post(`https://localhost:44312/api/RequsetSearchBabysiter`, SearchBabysiter)
   .then(response =>{

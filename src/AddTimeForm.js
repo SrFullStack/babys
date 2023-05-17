@@ -8,7 +8,40 @@ const AddTimeForm = ({ babysiterId, m }) => {
   // const [day, setDay] = useState("");
   // const [TimeOfDay, setTimeOfDay] = useState("");
   // const [rate, setrate] = useState("");
-  // const [neighborhood, setNeighborhood] = useState("");
+
+  useEffect(() => {
+   
+    try {
+      axios.get(`https://localhost:44312/api/Neighborhood`)
+        .then(response => {
+          //setneighborhoods([...neighborhoods,response.data])
+    
+          // for (let index = 0; index < response.data.length; index++) {
+          //   const element = response.data[index];
+            
+          //   //alert(element.neighborhoodName)
+           
+           
+          //   //setNeighborhood({ ...neighborhood, id: [...neighborhood.id, element.neighborhoodId] })
+            
+          //   //setNeighborhood({...neighborhood,id:[...neighborhood.id,element.neighborhoodId]})
+          //   // neighborhood[index].name=element.neighborhoodName;
+          //   // neighborhood[index].id=element.neighborhoodId;
+
+          //   //setNeighborhood([...element])
+          // }
+     
+//alert(neighborhood[0].id)
+          // alert(id)
+         
+        })
+    }
+    catch (err) {
+      console.error(err);
+    }
+   
+//idh();
+  });
   console.log('m', m)
 
   const [timeToAdd, setTimeToAdd] = useState({ day: [], timeOfDay: [], neighborhood: [], rate: "",d:"" })
@@ -18,8 +51,8 @@ const AddTimeForm = ({ babysiterId, m }) => {
   const neighborhoods = [{ id: 1, name: "רמות" }, { id: 2, name: "רמת שלמה" }]
   const [id, setId] = useState(0);
   const [isChecked, setIsChecked] = useState([]);
-
-  const [ingredients, setIngredients] = useState([]);
+  //const [neighborhoods, setneighborhoods] = useState([]);
+  const [ingredients, setIngredients] = useState();
 
   // const onIngredientsChange = (e) => {
   //     let _ingredients = [...ingredients];
@@ -137,6 +170,21 @@ const AddTimeForm = ({ babysiterId, m }) => {
         return setTimeToAdd({ ...timeToAdd, neighborhood: neighborhoodsTemp })
 
       }} /></div>))}
+
+
+      {/* //map map */}
+{/* 
+{neighborhoods.map((bs) => {
+           
+       return
+        {bs.map((t) => {t.neighborhoodName})}
+
+          
+                  
+           
+        })} */}
+
+
 
     {/* <label>רמות</label>
         <input type="checkbox" id="topping" name="topping" value="1" onChange={e => setIsChecked([...isChecked, e.target.value])} />
