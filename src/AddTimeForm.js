@@ -11,7 +11,10 @@ const AddTimeForm = ({ babysiterId, m }) => {
   // const [neighborhood, setNeighborhood] = useState("");
   console.log('m', m)
 
-  const [timeToAdd, setTimeToAdd] = useState({ day: [], timeOfDay: [], neighborhood: [], rate: "" })
+  const [timeToAdd, setTimeToAdd] = useState({ day: [], timeOfDay: [], neighborhood: [], rate: "",d:"" })
+  
+
+  const[s,sets]=useState({id:0,name:""});
   const neighborhoods = [{ id: 1, name: "רמות" }, { id: 2, name: "רמת שלמה" }]
   const [id, setId] = useState(0);
   const [isChecked, setIsChecked] = useState([]);
@@ -34,6 +37,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
     setIsChecked(!isChecked);
   };
   const PostTimeB = async () => {
+    setTimeToAdd({ ...timeToAdd, d: [...timeToAdd.d,"d"] })
 
     // console.log(timeToAdd);
     // console.log(props.id)
@@ -76,6 +80,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
   // const func=()=>{
   //     <PostTime timeToAdd={timeToAdd}></PostTime>
   // }
+  
   return <div>
     {/* <div className="card flex flex-wrap justify-content-center gap-3">
             <div className="flex align-items-center">
