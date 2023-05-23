@@ -13,6 +13,7 @@ import PostTime from './PostTime';
 import GetallBaby from './GetallBaby';
 import AddReqeust from './AddReqeust'; 
 import Opinion from './Opinion';
+import About from './About';
 const App = () => (
 
 
@@ -27,6 +28,7 @@ const App = () => (
     <Route path="/GetallBaby" element={<GetallBaby/>} />
     <Route path="/AddReqeust" element={<AddReqeust/>} />
     <Route path="/Opinion" element={<Opinion/>} />
+    <Route path="/About" element={<About/>}></Route>
 
   </ Routes>
 </BrowserRouter>

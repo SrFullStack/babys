@@ -11,8 +11,14 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import { useNavigate, useLocation } from "react-router-dom";
-// import "./Menu.css";
+import "./Menu.css";
 import { ReactComponent as Pic } from "./homePic.svg"
+import { ReactComponent as P } from "./Menu.svg";
+import { ReactComponent as PT } from "./MenuT.svg";
+import { ReactComponent as PM  } from "./MenuM.svg";
+import { ReactComponent as TM  } from "./MenuTM.svg";
+import { ReactComponent as V  } from "./MenuV.svg";
+
 import axios from "axios";
 export default function Menu() {
   const navigate = useNavigate();
@@ -62,13 +68,19 @@ catch (err) {
   const searchBabySiter = () => {
     navigate("/SearchBabySiterGetById", { replace: false })
   }
+  
+  const About = () => {
+   
+    navigate("/About", { replace: false })
+  }
   return (<div>     
   
   <div id="backGround"></div>
    <Pic id="pic"></Pic> 
    <h1 id="Caption">בכל מקום</h1>
+ 
    <h1 id="c">אנחנו בשבילך</h1>
-   {RequsetSearchBabysiter.map((t) =>{t.day})}
+   {/* {RequsetSearchBabysiter.map((t) =>{t.day})} */}
 {/* 
    {RequsetSearchBabysiter.map((rs) => {
     <h1>  fffff {rs.day} </h1>
@@ -80,12 +92,28 @@ catch (err) {
     <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
     <button onClick={RequsetSearchBabysiterr}>חיפוש RequsetSearchBabysiterr</button>
 
-    <h1>  fffff </h1>
+
     
    </div>
-    
+   <div>
+   <PT id="PT"></PT>
+   <div>
+   <P id="P"></P>
+   {/* <button id="About"onClick={About}>קרא עוד</button> */}
+   <button id="About"onClick={About}><p id="p">קרא עוד</p> </button>
 
-  </div>);
+   </div>
+ 
+
+
+   </div>
+   <div id="news"></div>
+   <div id="mail">
+    <PM id="PM"></PM>
+    <V id="V"></V>
+    <TM id="TM"></TM>
+   </div>
+    </div>);
 };
 
       // return <Card sx={{ minWidth: 2 }} sx={{color:'red'}}   sx={{ border: 15 }}sx={{  width: ['100%', '50%', '25%'], }}
