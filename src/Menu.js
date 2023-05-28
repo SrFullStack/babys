@@ -1,4 +1,6 @@
 
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { useState, useEffect } from "react";
 import React from 'react';
 import Box from '@mui/material/Box';
@@ -7,6 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+//https://www.npmjs.com/package/react-multi-carousel
 
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Menu.css";
@@ -18,6 +21,7 @@ import { ReactComponent as TM  } from "./MenuTM.svg";
 import { ReactComponent as V  } from "./MenuV.svg";
 
 import axios from "axios";
+import { red } from "@mui/material/colors";
 export default function Menu() {
   const navigate = useNavigate();
   const [RequsetSearchBabysiter, setRequsetSearchBabysiter] = useState([]);
@@ -141,6 +145,25 @@ if(babysiter.Age>10){
    
     navigate("/About", { replace: false })
   }
+  const responsive = {
+    superLargeDesktop: {
+        // the naming can be any, depends on you.
+        breakpoint: { max: 4000, min: 3000 },
+        items: 5
+    },
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 6
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1
+    }
+};
   return (<div>     
   
   <div id="backGround"></div>
@@ -148,7 +171,7 @@ if(babysiter.Age>10){
    <h1 id="Caption">בכל מקום</h1>
  
    <h1 id="c">אנחנו בשבילך</h1>
-   {/* {RequsetSearchBabysiter.map((t) =>{t.day})} */}
+   {RequsetSearchBabysiter.map((t) =>t.requsetSearchBabysiterId)}
 {/* 
    {RequsetSearchBabysiter.map((rs) => {
     <h1>  fffff {rs.day} </h1>
@@ -163,6 +186,86 @@ if(babysiter.Age>10){
 
     
    </div>
+   <div id="carousel">
+   <Carousel  swipeable={false}
+    // height='145%'
+    // width='40%'
+        draggable={false}
+        showDots={true}
+        responsive={responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+        autoPlaySpeed={1000}
+        keyBoardControl={true}
+        customTransition="all .5"
+        transitionDuration={500}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        // deviceType={this.props.deviceType}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px">
+       
+        {RequsetSearchBabysiter.map((t) =>{
+// return <Card  sx={{
+//   div: {
+//         backgroundColor: 'red',
+//          border: 5,
+//         //  width: ['10%', '10%', '10%'],
+         
+//         // padding: 3,
+//         // width: '20%',
+//         // height: '40%'
+        
+//     },
+//     }}>
+   
+return (
+  <Card sx={{ maxWidth: 200, maxHeight: 200 }}>
+     
+  <CardContent>
+    <Typography gutterBottom variant="h5" component="div">
+      דרושה
+    </Typography>
+    <Typography variant="body2" color="text.secondary">
+      דרושה ביביסיטר ליום {t.day} לשעות {t.partOfDay}
+     תעריף {t.price}
+    
+     <button id="m" onClick={babysiterr}>להגשת מועמדות</button>
+
+    </Typography>
+  </CardContent>
+  <CardActions>
+   
+  </CardActions>
+</Card>
+        )})}
+
+        {/* <Card  sx={{
+            div: {
+                  backgroundColor: 'red',
+                  border: 5,
+                  width: ['100%', '50%', '25%'],
+                  padding: 3,
+                },
+              }}
+             >
+                <CardContent>
+                    <Typography sx={{ fontSize: 12 }}   gutterBottom>
+                       firstName: 
+                       <br></br>
+                     age:  
+                    </Typography>
+                    <Typography sx={{ fontSize: 12 }}   gutterBottom>
+                       firstName: 
+                       <br></br>
+                     age:  
+                    </Typography>
+                 hhhh
+                </CardContent>
+            </Card> */}
+    </Carousel>
+    </div>
    <div>
    <PT id="PT"></PT>
    <div>
@@ -171,7 +274,6 @@ if(babysiter.Age>10){
    <button id="About"onClick={About}><p id="p">קרא עוד</p> </button>
 
    </div>
- 
 
 
    </div>
@@ -182,6 +284,7 @@ if(babysiter.Age>10){
     <TM id="TM"></TM>
     <input id="inputemail" className="input"  placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
    <button onClick={UpdateOpinion}>updateOpinion</button>
+   
    </div>
     </div>);
 };

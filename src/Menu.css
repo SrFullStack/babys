@@ -260,3 +260,41 @@ background: #FFFFFF;
 border: 0.676124px solid #878787;
 border-radius: 17.5792px;
 }
+#carousel{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    gap: 28px;
+    
+    position: absolute;
+    width: 1083px;
+    height: 294px;
+    left: calc(50% - 1083px/2 - 4.5px);
+    top: 798px; */
+
+}
+#cC{
+   
+    width: 150%;
+                  height: 200%;
+                  position: absolute;
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 4;
+    flex-grow: 0;
+}
+#sari{
+    background-color: pink;
+
+}
+#m{
+
+
+background: #F3C2D5;
+border-radius: 50px;
+width: 169px;
+height: 36px;
+}

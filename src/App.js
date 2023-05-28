@@ -14,6 +14,7 @@ import GetallBaby from './GetallBaby';
 import AddReqeust from './AddReqeust'; 
 import Opinion from './Opinion';
 import About from './About';
+import Example from './carusel.js'
 const App = () => (
 
 
@@ -31,6 +32,7 @@ const App = () => (
     <Route path="/About" element={<About/>}></Route>
 
   </ Routes>
+  {/* <Example/> */}
 </BrowserRouter>
 
 
