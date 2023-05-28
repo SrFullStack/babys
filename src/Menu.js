@@ -10,7 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 //https://www.npmjs.com/package/react-multi-carousel
-
+//
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Menu.css";
 import { ReactComponent as Pic } from "./homePic.svg"
