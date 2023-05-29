@@ -9,6 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+
 //https://www.npmjs.com/package/react-multi-carousel
 //
 import { useNavigate, useLocation } from "react-router-dom";
@@ -22,6 +23,7 @@ import { ReactComponent as V  } from "./MenuV.svg";
 
 import axios from "axios";
 import { red } from "@mui/material/colors";
+import GetallBaby from "./GetallBaby";
 export default function Menu() {
   const navigate = useNavigate();
   const [RequsetSearchBabysiter, setRequsetSearchBabysiter] = useState([]);
@@ -66,18 +68,25 @@ catch (err) {
 
 const [email, setEmail] = useState("");
 const [babysiter, setbabysiter] = useState("");
-
+const checked=()=>{
+  if(email==""){
+    alert("נא למלא מייל מתאים")
+  }
+ 
+}
 
 
 const UpdateOpinion =async ()=>{
+  checked();
     try{
+      
       await axios.get(`https://localhost:44312/api/BabySiter/GetByEmail?Email=${email}`)
          .then(async response =>{
             if(response.data.babysiterId!=undefined)
          {
-        
-        var age =response.data.age+1;
-           const babysiter=({babysiterId:response.data.babysiterId,FirstName:response.data.firstName,LastName:response.data.lastName,Phone:response.data.phone,Age:age, Email:response.data.email,Password:response.data.password,Description:response.data.description});
+        var NumOfOpinion=response.data.numOfOpinion+1;
+        //var age =response.data.age+1;
+           const babysiter=({babysiterId:response.data.babysiterId,FirstName:response.data.firstName,LastName:response.data.lastName,Phone:response.data.phone,Age:response.data.age, Email:response.data.email,Password:response.data.password,Description:response.data.description,NumOfOpinion:NumOfOpinion});
            AddOpinion(babysiter);
         }
          else{
@@ -85,7 +94,7 @@ const UpdateOpinion =async ()=>{
          }
            
          })
-       
+        
      }        
      
      catch (err) {
@@ -106,7 +115,7 @@ const UpdateOpinion =async ()=>{
  }
 
  const EmailForBenefits=async (babysiter)=>{
-if(babysiter.Age>10){
+if(babysiter.NumOfOpinion>10){
     axios.get( `https://localhost:44312/api/RequsetSearchBabysiter/GetEmail?email=${email}`)
         .then(res => {
             const data1 = res.data;
@@ -153,7 +162,7 @@ if(babysiter.Age>10){
     },
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 6
+        items: 5
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
@@ -171,7 +180,7 @@ if(babysiter.Age>10){
    <h1 id="Caption">בכל מקום</h1>
  
    <h1 id="c">אנחנו בשבילך</h1>
-   {RequsetSearchBabysiter.map((t) =>t.requsetSearchBabysiterId)}
+   {/* {RequsetSearchBabysiter.map((t) =>t.requsetSearchBabysiterId)} */}
 {/* 
    {RequsetSearchBabysiter.map((rs) => {
     <h1>  fffff {rs.day} </h1>
@@ -181,7 +190,7 @@ if(babysiter.Age>10){
    <div id="towbt">
    <button id="btbabisiter" onClick={babysiterr}>חיפוש עבודה      </button>
     <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
-    <button onClick={RequsetSearchBabysiterr}>חיפוש RequsetSearchBabysiterr</button>
+    {/* <button onClick={RequsetSearchBabysiterr}>חיפוש RequsetSearchBabysiterr</button> */}
 
 
     
@@ -277,15 +286,16 @@ return (
 
 
    </div>
-   <div id="news"></div>
+   <div id="news"> <GetallBaby></GetallBaby></div>
    <div id="mail">
     <PM id="PM"></PM>
     <V id="V"></V>
     <TM id="TM"></TM>
     <input id="inputemail" className="input"  placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
-   <button onClick={UpdateOpinion}>updateOpinion</button>
-   
+   <button id="up" onClick={UpdateOpinion}>updateOpinion</button>
+
    </div>
+   <div id="lmata"></div>
     </div>);
 };
 

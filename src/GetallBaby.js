@@ -1,15 +1,16 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import Carousel from "react-multi-carousel";
 import React from 'react';
-
+import "./GetallBaby.css";
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { ReactComponent as T } from "./telphoe.svg";
 // import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -33,7 +34,25 @@ export default function GetallBaby() {
     const [loading, setLoading] = useState(false);
     const [babySitters, setBabySitters] = useState([]);
     const [babysittersBySearch, setBabysittersBySearch] = useState([])
-
+    const responsive = {
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 4
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
+    };
     const bull = (
         <Box
             component="span"
@@ -54,12 +73,7 @@ export default function GetallBaby() {
 
             axios.get(`https://localhost:44312/api/BabySiter/GetAll`)
                 .then(async (response) => {
-
                     babySiterList = response.data;
-
-
-
-
                     for (let index = 0; index < response.data.length; index++) {
                         let id = response.data[index].babysiterId
                         time = await axios.get(`https://localhost:44312/api/Time/Get?BabysiterId=${id}`)
@@ -95,93 +109,72 @@ const filter=()=>{
     // if (!price) setBabysittersBySearch(babySitters)
     const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))&& (bs.time.some(t => t.day <= day || day==""))
     &&((bs.time.partOfDay==PartOfDay ||PartOfDay=="")))
-    // const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))
-    // )
-    
-    // && ((bs.time.some(t => t.day <= day)||day==null ) )&&(bs => bs.age=age)||age==null)
+ 
     setBabysittersBySearch(filteredByPrice)
-    // const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price) || price==null))
-    
-    
-    // setBabysittersBySearch(filteredByPrice)
-    // const filteredByAge = babySitters.filter(bs => bs.age=age)
-    // setBabysittersBySearch(filteredByAge)
-    // const filteredByDay = babySitters.filter(bs => bs.time.some(t => t.day <= day))
-    // setBabysittersBySearch(filteredByDay)
-    // const filteredByPartOfDay = babySitters.filter(bs => bs.time.some(t => t.price <= price))
-    // setBabysittersBySearch(filteredByPartOfDay)
-    // setBabysittersBySearch(filteredByAge,filteredByPrice,filteredByDay,filteredByPartOfDay)
-    // console.log(babysittersBySearch);
+    // const filter
+ 
 }
 
-    // useEffect(() => {       
-    //      if (!price) setBabysittersBySearch(babySitters)
-    //     const filteredByPrice = babySitters.filter(bs => bs.time.some(t => t.price <= price))
-        
-    //     const filteredByAge = babySitters.filter(bs => bs.age=age)
-    //     setBabysittersBySearch(filteredByAge,filteredByPrice)
-    //     const filteredByDay = babySitters.filter(bs => bs.time.some(t => t.day <= day))
-    //     setBabysittersBySearch(filteredByDay)
-    //     const filteredByPartOfDay = babySitters.filter(bs => bs.time.some(t => t.price <= price))
-    //     setBabysittersBySearch(filteredByPartOfDay)
-    //     // const filteredByPrice = babySitters.filter(bs => bs.time.some(t => t.price <= price))
-    //     // setBabysittersBySearch(filteredByPrice)
-    // }, [price,age,PartOfDay,day,neighborhood])
-  
+   
     const RegisterSearchBabySiter=()=>{
         navigate("/SearchBabySiterGetById")
       }
     return (<div>
-        {/* {babySitters.map((babySiter, index) => <div key={index}>{babySiter.firstName}שם:{babySiter.age}age{babySiter.time.map((t, i) => <div key={i}>{t.day}יום:</div>)}
-            {babySiter.Neighborhood.map((n, i) => <div key={i}>{n.neighborhoodId}id:</div>)}</div>)} */}
-        {babysittersBySearch.map((bs) => {
-            // return <Card sx={{ minWidth: 2 }} sx={{color:'red'}}   sx={{ border: 15 }}sx={{  width: ['100%', '50%', '25%'], }}
-            return <Card  sx={{
-            div: {
-                  backgroundColor: 'red',
-                  border: 5,
-                  width: ['100%', '50%', '25%'],
-                  padding: 3,
-                },
-              }}
-             >
-                <CardContent>
-                    <Typography sx={{ fontSize: 12 }}   gutterBottom>
-                       firstName: {bs.firstName}
-                       <br></br>
-                     age:  {bs.age}
-                    </Typography>
-                    {bs.time.map((t) => <Typography>day:{t.day}</Typography>)}
-                    {bs.Neighborhood.map((t) => <Typography>neighborhood:{t.neighborhoodId}</Typography>)}
-                 
-                </CardContent>
-            </Card>
-        })}
+      
+<div id="Carousel" >
+   <Carousel  swipeable={false}
+    // height='145%'
+    // width='40%'
+        draggable={false}
+        showDots={true}
+        responsive={responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+       
+        autoPlaySpeed={1000}
+        keyBoardControl={true}
+        customTransition="all .5"
+        transitionDuration={500}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        // deviceType={this.props.deviceType}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px">
+       
+        {babysittersBySearch.map((t) =>{
+
+   
+return (
+  <Card id="cd"  sx={{ maxWidth: 200, maxHeight: 200 }}>
+     
+  <CardContent  >
+    <Typography gutterBottom variant="h5" component="div">
+      
+    <p id="p">{t.firstName}</p>
+<T id="T"></T><p id="pt">{t.phone}</p>
+
+    </Typography>
+    <Typography variant="body2" color="text.secondary">
+      דרושה ביביסיטר ליום {t.firstName} age: {t.age}
+   
+      {/* {t.Neighborhood.map((t) => <Typography>neighborhood:{t.neighborhoodId}</Typography>)} */}
+    
+
+    </Typography>
+  
+  </CardContent>
+  <CardActions>
+   
+  </CardActions>
+</Card>
+        )})}
+
+    </Carousel>
+    </div>
 
 
-
-<Autocomplete
-  disablePortal
-  id="combo-box-demo"
-  options={top100Films}
-  sx={{ width: 200 }}
-renderInput={(params) => <TextField {...params} label="price" onChange={(e) => Setprice(e.target.value)}/>}
-
-/>
-
-        {/* <input className="input" type="number" placeholder='price' onChange={(e) => Setprice(e.target.value)} /><br></br> */}
-        <input className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
-        <input className="input" type="text" placeholder='day' onChange={(e) => SetDay(e.target.value)} /><br></br>
-        <input className="input" type="text" placeholder='PartOfDay' onChange={(e) => SetPartOfDay(e.target.value)} /><br></br>
-         <input className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>   
-         <button onClick={filter}>חפש</button>
-         <button onClick={RegisterSearchBabySiter}>RegisterSearchBabySiter</button>
+        
          
          </div>);
 
 };
-
-const top100Films = [
-    { label: '2'},
-    { label: '10'},
-]

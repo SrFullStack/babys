@@ -1,0 +1,55 @@
+#Carousel{
+    position: absolute;
+    width: 85%;
+    height: 294px; 
+    left: calc(50% - 1083px/2 - 4.5px);
+top: 35%
+}
+#p{
+    width: 85px;
+height: 9px;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+#cd{
+
+
+background: #FDFDFD;
+box-shadow: 0px 4px 26px rgba(59, 16, 136, 0.22);
+border-radius: 24.2004px;
+transform: rotate(-0.59deg); 
+} 
+#T{
+    
+    width: 180%;
+height:20px;
+left: 1230px;
+top: 2022px;
+}
+#pt{
+  
+    height: 20px;
+    left: 1230px;
+    top: 2022px;
+
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+text-align: right;
+
+color: #2F4B6F;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+}

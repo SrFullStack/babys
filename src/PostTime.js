@@ -19,7 +19,7 @@ export default function PostTime(props) {
 
   const location = useLocation();
   const { babysiter } = location?.state;
-  // const [isChecked, setIsChecked] = useState([]);
+  const [isChecked, setIsChecked] = useState([]);
   const [id, setId] = useState(0);
   const [numberOfForms, setNumberOfForms] = useState([])
   const [m, setm] = useState("wer");
