@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import "./Menu.css";
 import "./GetallBabyMenu.css";
 import { ReactComponent as D } from "./pn.svg";
+import { ReactComponent as N } from "./Aboutnew.svg"
 
 import { ReactComponent as L } from "./Menulogoo.svg";
 import { ReactComponent as Pic } from "./homePic.svg"
@@ -150,28 +151,32 @@ const filter=()=>{
    </div></div>    
   
    <div id="div">
+ 
+
    {/* <span class="sp">חיפוש</span> */}
      <div id="g">חיפוש</div>
      {/* תמונה לתןף */}
      {/* <D></D> */}
      <input id="price" placeholder=" price" className="input" label="price" onChange={(e) => Setprice(e.target.value)} /><br></br>
      <input id="age" className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
+     <input id="day" className="input" type="text" placeholder='day' onChange={(e) => SetDay(e.target.value)} /><br></br>
+     <input id="part" className="input" type="text" placeholder='PartOfDay' onChange={(e) => SetPartOfDay(e.target.value)} /><br></br>
+         <input id="ne" className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>   
+         <button id="filter" onClick={filter}>חפש</button>
    </div>
-<div id="t">תוצאות שנמצאו</div>
+<div id="t"> תוצאות שהתקבלו</div>
 
-   
+      <div ><p id="za">חדשים</p></div>
 
         {/* {babySitters.map((babySiter, index) => <div key={index}>{babySiter.firstName}שם:{babySiter.age}age{babySiter.time.map((t, i) => <div key={i}>{t.day}יום:</div>)}
             {babySiter.Neighborhood.map((n, i) => <div key={i}>{n.neighborhoodId}id:</div>)}</div>)} */}
         {babysittersBySearch.map((bs) => {
             // return <Card sx={{ minWidth: 2 }} sx={{color:'red'}}   sx={{ border: 15 }}sx={{  width: ['100%', '50%', '25%'], }}
-            return <Card  sx={{
-            div: {
-                  backgroundColor: 'red',
-                  border: 5,
-                  width: ['100%', '50%', '25%'],
-                  padding: 3,
-                },
+            return <Card   sx={{
+                width: 919.54,
+                height: 149.06, 
+                left: 172.91,
+          top: 594,
               }}
              >
                 <CardContent>
