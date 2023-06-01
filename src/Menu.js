@@ -20,7 +20,7 @@ import { ReactComponent as PT } from "./MenuT.svg";
 import { ReactComponent as PM  } from "./MenuM.svg";
 import { ReactComponent as TM  } from "./MenuTM.svg";
 import { ReactComponent as V  } from "./MenuV.svg";
-
+import { ReactComponent as L } from "./Menulogoo.svg";
 import axios from "axios";
 import { red } from "@mui/material/colors";
 import GetallBaby from "./GetallBaby";
@@ -176,6 +176,7 @@ if(babysiter.NumOfOpinion>10){
   return (<div>     
   
   <div id="backGround"></div>
+  <L id="L"></L>
    <Pic id="pic"></Pic> 
    <h1 id="Caption">בכל מקום</h1>
  
@@ -292,10 +293,18 @@ return (
     <V id="V"></V>
     <TM id="TM"></TM>
     <input id="inputemail" className="input"  placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
-   <button id="up" onClick={UpdateOpinion}>updateOpinion</button>
+   <button id="up" onClick={UpdateOpinion}>ההמלצה</button>
 
    </div>
-   <div id="lmata"></div>
+   <div id="lmata">
+    <div id="LO">   <L></L></div>
+
+   <a id="a" href="http://localhost:3000/About">?זקוק לעזרה</a>
+   <a id="href" href="http://localhost:3000/About">אודותינו</a>
+   
+   {/* <div id="span">אופן השירות</div> */}
+   {/* <p id="span">שירות הלוקות</p> */}
+   </div>
     </div>);
 };
 

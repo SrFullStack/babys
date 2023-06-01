@@ -12,7 +12,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 // import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
+import "./Menu.css";
+import "./GetallBabyMenu.css";
+import { ReactComponent as D } from "./pn.svg";
 
+import { ReactComponent as L } from "./Menulogoo.svg";
+import { ReactComponent as Pic } from "./homePic.svg"
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import AddReqeust from "./AddReqeust";
@@ -126,7 +131,36 @@ const filter=()=>{
     const RegisterSearchBabySiter=()=>{
         navigate("/SearchBabySiterGetById")
       }
-    return (<div>
+      const babysiterr = () => {
+   
+        navigate("/BabySiterGetById", { replace: false })
+      }
+      const searchBabySiter = () => {
+        navigate("/SearchBabySiterGetById", { replace: false })
+      }
+    return (
+  
+        <div> 
+            <div id="w"><L id="L"></L>
+   <div id="towbt">
+  <button id="btbabisiterget" onClick={babysiterr}>חיפוש עבודה      </button>
+    <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
+ 
+   
+   </div></div>    
+  
+   <div id="div">
+   {/* <span class="sp">חיפוש</span> */}
+     <div id="g">חיפוש</div>
+     {/* תמונה לתןף */}
+     {/* <D></D> */}
+     <input id="price" placeholder=" price" className="input" label="price" onChange={(e) => Setprice(e.target.value)} /><br></br>
+     <input id="age" className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
+   </div>
+<div id="t">תוצאות שנמצאו</div>
+
+   
+
         {/* {babySitters.map((babySiter, index) => <div key={index}>{babySiter.firstName}שם:{babySiter.age}age{babySiter.time.map((t, i) => <div key={i}>{t.day}יום:</div>)}
             {babySiter.Neighborhood.map((n, i) => <div key={i}>{n.neighborhoodId}id:</div>)}</div>)} */}
         {babysittersBySearch.map((bs) => {

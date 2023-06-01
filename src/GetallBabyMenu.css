@@ -1,0 +1,145 @@
+#div{
+    position: absolute;
+width: 100%;
+height: 74px;
+left: 0px;
+top: 59px;
+
+background: #F7F2FF;
+}
+#w{
+    position: absolute;
+    width: 1263px;
+    height: 58.82px;
+    left: 0px;
+    top: 0px;
+    
+    background: #FFFFFF; 
+}
+#btbabisiterget{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6.76124px 37.863px;
+    gap: 6.76px;
+    width: 75%;
+    height: 120%;
+  
+    border-radius: 25.0166px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+background: #AF8FE9;
+border-radius: 100px;
+}
+#merge{
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 28px;
+
+position: absolute;
+width: 696.89px;
+height: 37.6px;
+left: 525px;
+top: 77px;
+}
+.sp{
+    width: 100%;
+height: 24px;
+left: 40%;
+font-family: 'Kufam';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+
+text-align: center;
+letter-spacing: -0.011em;
+
+color: #6A6B6B;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 2;
+flex-grow: 0;
+}
+#g{
+    position: absolute;
+    width: 44px;
+    height: 24px;
+  
+    font-family: 'Kufam';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+    
+    text-align: center;
+    letter-spacing: -0.011em;
+    top: 30%;
+    right: 2%;
+    color: #6A6B6B;
+    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+#price{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 6px 16px 6px 132px;
+    gap: 10px;
+    width: 3%;
+    height: 19%;
+    background: rgba(255, 255, 255, 0.81);
+    border-radius: 33px;
+    right: 8%;
+    top: 30%;
+    background: white;
+    border: white;
+}
+#but{
+    position: absolute;
+width: 220px;
+height: 27px;
+left: 86.14px;
+top: 16px;
+}
+#age{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 6px 16px 6px 132px;
+    gap: 10px;
+    width: 3%;
+    height: 19%;
+    background: rgba(255, 255, 255, 0.81);
+    border-radius: 33px;
+    right: 25%;
+    top: 30%;
+    background: white;
+    border: white;
+}
+#t{
+    position: absolute;
+width: 296.38px;
+height: 35px;
+left: 891.62px;
+top: 222px;
+right: 1%;
+}

@@ -322,3 +322,76 @@ height: 36px;
     top: 2793.72px;
     background: #9CBDFF;
 }
+a{
+    position: absolute;
+width: 128.05px;
+height: 29.13px;
+left: 85%;
+top: 40%;
+
+font-family: 'Kufam';
+font-style: normal;
+font-weight: 600;
+font-size: 20.9865px;
+line-height: 150%;
+/* or 31px */
+
+text-align: center;
+letter-spacing: -0.011em;
+
+color: #2F2424;
+}
+/* span{
+    position: absolute;
+width: 83.41px;
+height: 20.39px;
+left: 1216px;
+top: 2979.88px;
+
+font-family: 'Kufam';
+font-style: normal;
+font-weight: 400;
+font-size: 14.6906px;
+line-height: 150%;
+/* or 22px */
+
+/* text-align: center;
+letter-spacing: -0.011em;
+
+color: #851717; */
+/* }  */
+#href{
+    position: absolute;
+    width: 83.41px;
+    height: 29.13px;
+    left: 72%;
+    top: 40%;    
+    font-family: 'Kufam';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20.9865px;
+    line-height: 150%;
+    /* or 31px */
+    
+    text-align: center;
+    letter-spacing: -0.011em;
+    
+    color: #2F2424;
+    
+}
+#L{
+    position: absolute;
+width: 61px;
+height: 56px;
+left: 1349.45px;
+top: 9.51px;
+
+
+}
+#LO{
+    position: absolute;
+    width: 111px;
+    height: 102px;
+    left: 10%;
+    top: 40%;
+}
