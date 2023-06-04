@@ -33,23 +33,20 @@ top: 2022px;
 }
 #pt{
   
-    height: 20px;
-    left: 1230px;
-    top: 2022px;
+    height: 10px;
+    left: 40%;
 
-font-family: 'Rubik';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 14px;
-text-align: right;
+    top: 36%;
+    position: absolute;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: right;
+    color: #2F4B6F;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 
-color: #2F4B6F;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 1;
-flex-grow: 0;
 }

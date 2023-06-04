@@ -231,3 +231,8 @@ border-radius: 25.0166px;
   
     
 }
+#CardContent{
+    background-color: #AB85FF;
+    position: absolute;
+    top: 20%;
+}

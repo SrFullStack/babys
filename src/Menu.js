@@ -21,7 +21,10 @@ import { ReactComponent as PM  } from "./MenuM.svg";
 import { ReactComponent as TM  } from "./MenuTM.svg";
 import { ReactComponent as V  } from "./MenuV.svg";
 import { ReactComponent as L } from "./Menulogoo.svg";
+
 import axios from "axios";
+import { ReactComponent as A } from "./MenuAb.svg";
+
 import { red } from "@mui/material/colors";
 import GetallBaby from "./GetallBaby";
 export default function Menu() {
@@ -195,7 +198,7 @@ if(babysiter.NumOfOpinion>10){
 
 
     
-   </div>
+   </div >
    <div id="carousel">
    <Carousel  swipeable={false}
     // height='145%'
@@ -240,6 +243,7 @@ return (
     <Typography variant="body2" color="text.secondary">
       דרושה ביביסיטר ליום {t.day} לשעות {t.partOfDay}
      תעריף {t.price}
+
     
      <button id="m" onClick={babysiterr}>להגשת מועמדות</button>
 
@@ -301,7 +305,7 @@ return (
 
    <a id="a" href="http://localhost:3000/About">?זקוק לעזרה</a>
    <a id="href" href="http://localhost:3000/About">אודותינו</a>
-   
+   <A id="ab"></A>
    {/* <div id="span">אופן השירות</div> */}
    {/* <p id="span">שירות הלוקות</p> */}
    </div>

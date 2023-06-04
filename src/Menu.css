@@ -3,7 +3,7 @@ box-sizing: border-box;
 
 position: absolute ;
 width: 100%;
-height: 100%;
+height: 80%;
 left: 0px;
 top: 69px;
 
@@ -55,20 +55,19 @@ color: #2F4B6F;
 }
 #btbabisiter{
    
-
-width: 75%;
-height: 120%;
-
-background: #6D94E4;
-border-radius: 25.0166px;
-
-/* Inside auto layout */
-top: 80%;
-flex: none;
-order: 0;
+    position: absolute;
+    width: 9%;
+    height: 3.5%;
+    background: #6D94E4;
+    border-radius: 25.0166px;
+    top: 2%!important;
+    flex: none;
+    order: 0;
+    left: 11%;
 
 
 }
+
 #btsearchbabysiter{
   /* right: 180%; */
   left: 12%;
@@ -122,43 +121,17 @@ left: 59px;
 top: 1245.34px;
 }
 #PT{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 12px;
+    
     position: absolute;
-    left: 833px;
     width: 459px;
-    height: 400px;
-top: 1245.34px;
-    width: 459px;
-height: 243px;
-
-font-family: 'Rubik';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 150%;
-/* or 27px */
-
-text-align: right;
-letter-spacing: -0.011em;
-
-color: #2F4B6F;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 1;
-flex-grow: 0;
-display: flex;
-flex-direction: column;
-align-items: flex-end;
-padding: 0px;
-gap: 12px;
-
-position: absolute;
-width: 459px;
-height: 330px;
-left: 833px;
-top: 1237.33px;
+    height: 353px;
+    left: 70%;
+    top: 1237px;
 }
 #About{
     position: absolute;
@@ -257,21 +230,20 @@ background: #FFFFFF;
 border: 0.676124px solid #878787;
 border-radius: 17.5792px;
 }
+
 #carousel{
-     /* display: flex; */
-    flex-direction: row;
-     justify-content: flex-end;
-    align-items: center;
-    padding: 0px;
-    gap: 28px;
-     
-     position: absolute;
-    width: 85%;
-    height: 294px; 
-     left: calc(50% - 1083px/2 - 4.5px);
-
-    top: 130%; 
-
+      /* display: flex; */
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0px;
+      gap: 28px;
+      position: absolute;
+      width: 60%;
+      height: 50%;
+      left: 10%;
+       /* background-color: aqua;  */
+      top: 100%;
 }
 #cC{
    
@@ -361,20 +333,16 @@ color: #851717; */
     position: absolute;
     width: 83.41px;
     height: 29.13px;
-    left: 72%;
-    top: 40%;    
+    left: 78%;
+    top: 40%;
     font-family: 'Kufam';
     font-style: normal;
     font-weight: 600;
     font-size: 20.9865px;
     line-height: 150%;
-    /* or 31px */
-    
     text-align: center;
     letter-spacing: -0.011em;
-    
     color: #2F2424;
-    
 }
 #L{
     position: absolute;
@@ -391,4 +359,11 @@ top: 9.51px;
     height: 102px;
     left: 10%;
     top: 40%;
+}
+#ab{
+    position: absolute;
+    width: 316.41px;
+    height: 49.52px;
+    left: 75%;
+    top: 60%;
 }

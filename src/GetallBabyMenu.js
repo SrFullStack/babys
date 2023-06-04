@@ -179,7 +179,7 @@ const filter=()=>{
           top: 594,
               }}
              >
-                <CardContent>
+                <CardContent >
                     <Typography sx={{ fontSize: 12 }}   gutterBottom>
                        firstName: {bs.firstName}
                        <br></br>
