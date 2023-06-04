@@ -11,6 +11,9 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ReactComponent as T } from "./telphoe.svg";
+import { ReactComponent as F } from "./Menuframe.svg";
+import { ReactComponent as M } from "./GetAllBabyMail.svg";
+
 // import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -150,12 +153,16 @@ return (
   <CardContent  >
     <Typography gutterBottom variant="h5" component="div">
       
-    <p id="p">{t.firstName}</p>
-<T id="T"></T><p id="pt">{t.phone}</p>
-
+    <p id="pid">{t.firstName} {t.lastName}</p>
+    <div id="fs"><F></F></div>
+    
+    <p id="f">רמת שלמה</p>
+    <div id="T"><T></T></div>
+<p id="pt">{t.phone}</p>
+<div id="ma"><M></M></div>
     </Typography>
     <Typography variant="body2" color="text.secondary">
-      דרושה ביביסיטר ליום {t.firstName} age: {t.age}
+      {/* {t.firstName}  {t.age} */}
    
       {/* {t.Neighborhood.map((t) => <Typography>neighborhood:{t.neighborhoodId}</Typography>)} */}
     

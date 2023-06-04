@@ -5,16 +5,28 @@
     left: calc(50% - 1083px/2 - 4.5px);
 top: 35%
 }
-#p{
-    width: 85px;
+#pid{
+    /* width: 85px;
 height: 9px;
-
-
+background-color: aquamarine;
+color: blue;
 /* Inside auto layout */
-
+/* 
 flex: none;
 order: 0;
-flex-grow: 0;
+flex-grow: 0; */ 
+position: absolute;
+width: 85px;
+height: 9px;
+left: 90px;
+top: 10px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 17px;
+text-align: right;
+color: #2F4B6F;
 }
 #cd{
 
@@ -23,30 +35,72 @@ background: #FDFDFD;
 box-shadow: 0px 4px 26px rgba(59, 16, 136, 0.22);
 border-radius: 24.2004px;
 transform: rotate(-0.59deg); 
+width: 204.81px;
+height: 194.4px;
 } 
 #T{
-    
-    width: 180%;
-height:20px;
-left: 1230px;
-top: 2022px;
+    width: 15%;
+    height: 10%;
+    position: absolute;
+    left: 82%;
+    top: 50%;
 }
 #pt{
   
     height: 10px;
-    left: 40%;
-
-    top: 36%;
+    left: 37%;
+    top: 45%;
     position: absolute;
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 14px;
     text-align: right;
     color: #2F4B6F;
     flex: none;
     order: 1;
+    /* top: 30%; */
+    order: 0;
+    flex-grow: 0;
+    /* left: 30%; */
     flex-grow: 0;
 
+
+
+}
+#f{
+    width: 101px;
+    height: 14px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 14px;
+    text-align: right;
+    color: #2F4B6F;
+    position: absolute;
+    top: 30%;
+    order: 0;
+    flex-grow: 0;
+    left: 30%;
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+#fs{
+    width: 15%;
+    height: 10%;
+    position: absolute;
+    left: 82%;
+    top: 35%;
+}
+#ma{
+    width: 15%;
+    height: 10%;
+    position: absolute;
+    left: 82%;
+    top: 65%;
 }
