@@ -1,0 +1,28 @@
+#cardd{
+    position: relative;
+    width: 919.54px;
+height: 149.06px;
+    left: 0px;
+    top: 600px;
+    background: #FFFFFF;
+    right: 20%;
+    border-radius: 40.2px;
+   
+    box-shadow: 0px 4px 26px rgba(59, 16, 136, 0.22);
+    border-radius: 24.2004px;
+    transform: rotate(-0.59deg);
+}
+#name{
+    position: absolute;
+    width: 146px;
+    height: 19px;
+    left: 700px;
+    top: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+    color: #2F4B6F;
+}

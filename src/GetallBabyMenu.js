@@ -2,7 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
+
+// or
+
 import React from 'react';
+
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -10,10 +14,13 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+
+
 // import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./Menu.css";
 import "./GetallBabyMenu.css";
+
 import { ReactComponent as D } from "./pn.svg";
 import { ReactComponent as N } from "./Aboutnew.svg"
 
@@ -22,6 +29,9 @@ import { ReactComponent as Pic } from "./homePic.svg"
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import AddReqeust from "./AddReqeust";
+import { Stack } from "@mui/material";
+import {Pagination} from "@mui/material";
+import BaByStack from "./BaByStack";
 
 // const Time = ({ babysitterTime }) => <>{babysitterTime.map((t) => <Typography>{t.day}</Typography>)}</>
 
@@ -40,6 +50,10 @@ export default function GetallBabyMenu() {
     const [babySitters, setBabySitters] = useState([]);
     const [babysittersBySearch, setBabysittersBySearch] = useState([])
 
+    const [size1, setSize1] = useState(1);
+    const countOfLfs = 4;
+    const [smallAd, setSmallAd] = useState(babysittersBySearch.slice(0, countOfLfs));
+  
     const bull = (
         <Box
             component="span"
@@ -139,6 +153,14 @@ const filter=()=>{
       const searchBabySiter = () => {
         navigate("/SearchBabySiterGetById", { replace: false })
       }
+
+      const handleChangePagination = (event,value) => {
+        setSize1(value)
+        let x = babysittersBySearch.slice((size1 - 1) * countOfLfs, size1 * countOfLfs);
+        setSmallAd(x);
+      };
+    
+    
     return (
   
         <div> 
@@ -167,49 +189,33 @@ const filter=()=>{
 <div id="t"> תוצאות שהתקבלו</div>
 
       <div ><p id="za">חדשים</p></div>
+   
+      {smallAd.length > 0 ? (
 
-        {/* {babySitters.map((babySiter, index) => <div key={index}>{babySiter.firstName}שם:{babySiter.age}age{babySiter.time.map((t, i) => <div key={i}>{t.day}יום:</div>)}
-            {babySiter.Neighborhood.map((n, i) => <div key={i}>{n.neighborhoodId}id:</div>)}</div>)} */}
-        {babysittersBySearch.map((bs) => {
-            // return <Card sx={{ minWidth: 2 }} sx={{color:'red'}}   sx={{ border: 15 }}sx={{  width: ['100%', '50%', '25%'], }}
-            return <Card   sx={{
-                width: 919.54,
-                height: 149.06, 
-                left: 172.91,
-          top: 594,
-              }}
-             >
-                <CardContent >
-                    <Typography sx={{ fontSize: 12 }}   gutterBottom>
-                       firstName: {bs.firstName}
-                       <br></br>
-                     age:  {bs.age}
-                    </Typography>
-                    {bs.time.map((t) => <Typography>day:{t.day}</Typography>)}
-                    {bs.Neighborhood.map((t) => <Typography>neighborhood:{t.neighborhoodId}</Typography>)}
-                 
-                </CardContent>
-            </Card>
-        })}
+smallAd.map((data) => (
+
+ <BaByStack obj={data}></BaByStack>
+  
+
+))
+) : (
+<Stack sx={{ width: "100%" }} spacing={2}>
+  <h1>hhh</h1>
+</Stack>
+)}
+
+<Stack>
+    <div id="pagination">
+        חחחחחח
+<Pagination 
+  count={Math.ceil(babysittersBySearch.length / countOfLfs)}
+  color="secondary"
+  onChange={handleChangePagination}
+/></div>
+</Stack>
 
 
 
-<Autocomplete
-  disablePortal
-  id="combo-box-demo"
-  options={top100Films}
-  sx={{ width: 200 }}
-renderInput={(params) => <TextField {...params} label="price" onChange={(e) => Setprice(e.target.value)}/>}
-
-/>
-
-        {/* <input className="input" type="number" placeholder='price' onChange={(e) => Setprice(e.target.value)} /><br></br> */}
-        <input className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
-        <input className="input" type="text" placeholder='day' onChange={(e) => SetDay(e.target.value)} /><br></br>
-        <input className="input" type="text" placeholder='PartOfDay' onChange={(e) => SetPartOfDay(e.target.value)} /><br></br>
-         <input className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>   
-         <button onClick={filter}>חפש</button>
-         <button onClick={RegisterSearchBabySiter}>RegisterSearchBabySiter</button>
          
          </div>);
 

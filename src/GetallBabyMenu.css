@@ -236,3 +236,9 @@ border-radius: 25.0166px;
     position: absolute;
     top: 20%;
 }
+#pagination{
+    top: 200%;
+    background-color: #2F4B6F;
+    
+    position: absolute;
+}
