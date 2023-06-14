@@ -15,7 +15,7 @@ export default function BaByStack(data) {
 
     const s = () => {
 
-       alert(data.obj.neighborhoodId)
+       alert(data.obj.neighborhoodId.neighborhoodBabysiterId)
       }
 
   
