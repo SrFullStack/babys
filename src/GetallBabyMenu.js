@@ -206,7 +206,7 @@ smallAd.map((data) => (
 
 <Stack>
     <div id="pagination">
-        חחחחחח
+       
 <Pagination 
   count={Math.ceil(babysittersBySearch.length / countOfLfs)}
   color="secondary"
@@ -215,7 +215,49 @@ smallAd.map((data) => (
 </Stack>
 
 
+{babysittersBySearch.map((bs) => {
+            // return <Card sx={{ minWidth: 2 }} sx={{color:'red'}}   sx={{ border: 15 }}sx={{  width: ['100%', '50%', '25%'], }}
+            return <Card   sx={{
+                width: 919.54,
+                height: 149.06, 
+                left: 172.91,
+          top: 594,
+              }}
+             >
+                <CardContent >
+                    <Typography sx={{ fontSize: 12 }}   gutterBottom>
+                       firstName: {bs.firstName}
+                       <br></br>
+                     age:  {bs.age}
+                    </Typography>
+                    {bs.time.map((t) => <Typography>day:{t.day}</Typography>)}
+                    {bs.Neighborhood.map((t) => <Typography>neighborhood:{t.neighborhoodId}</Typography>)}
+                 
+                </CardContent>
+            </Card>
+        })}
 
+
+
+<Autocomplete
+  disablePortal
+  id="combo-box-demo"
+  options={top100Films}
+  sx={{ width: 200 }}
+renderInput={(params) => <TextField {...params} label="price" onChange={(e) => Setprice(e.target.value)}/>}
+
+/>
+
+
+
+
+        {/* <input className="input" type="number" placeholder='price' onChange={(e) => Setprice(e.target.value)} /><br></br> */}
+        <input className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
+        <input className="input" type="text" placeholder='day' onChange={(e) => SetDay(e.target.value)} /><br></br>
+        <input className="input" type="text" placeholder='PartOfDay' onChange={(e) => SetPartOfDay(e.target.value)} /><br></br>
+         <input className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>   
+         <button onClick={filter}>חפש</button>
+         <button onClick={RegisterSearchBabySiter}>RegisterSearchBabySiter</button>
          
          </div>);
 

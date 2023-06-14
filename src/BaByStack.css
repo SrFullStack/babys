@@ -26,3 +26,30 @@ height: 149.06px;
     text-align: right;
     color: #2F4B6F;
 }
+#talphone{
+    position: relative;
+    /* background-color: #2F4B6F; */
+    width: 50px;
+    height: 17.88px;
+    top: 540px;
+    right: 40%;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+
+}
+#neboord{
+    position: relative;
+    /* background-color: #2F4B6F; */
+    width: 50px;
+    height: 18.04px;
+    
+    top: 520px;
+    right: 25%;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
