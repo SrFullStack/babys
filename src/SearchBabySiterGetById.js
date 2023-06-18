@@ -2,6 +2,13 @@ import { useState } from 'react';
 import axios from "axios";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./SearchBabySiterGetById.css";
+import { ReactComponent as O } from "./logocircel.svg";
+import { ReactComponent as T } from "./textt.svg";
+import { ReactComponent as E } from "./em.svg";
+import { ReactComponent as K } from "./kod.svg";
+import { ReactComponent as P } from "./t.svg";
+import { ReactComponent as R } from "./kitov.svg";
 export default function SearchBabySiterGetById() {
 
     const [password, setPassword] = useState("");
@@ -29,13 +36,37 @@ const RegisterSearchBabySiter=()=>{
 const Opinion=()=>{
   navigate("/Opinion")
 }
+const babysiterr = () => {
+   
+  navigate("/BabySiterGetById", { replace: false })
+}
+const searchBabySiter = () => {
+  navigate("/SearchBabySiterGetById", { replace: false })
+}
     return (
 
       <div>
+        <O id='O'></O>
+        <div id="towbt">
+   <button id="btbabisiter" onClick={babysiterr}>חיפוש עבודה      </button>
+    <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
+   
+    
+   </div >
+   <T id='T'></T>
+   <E id="email"></E>
+<K id='K'></K>
+<P id='pi'></P>
         <h1>ytt</h1>
-       <input className="input" type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} /><br></br>
-       <input className="input" type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
-       <button onClick={SearchBabySiterGetById}>SearchBabySiterGetById</button>
+       <input id="p" className="input" type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} /><br></br>
+       <input id='e' className="input" type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
+       <button id="s" onClick={SearchBabySiterGetById}>התחבר</button>
+       <a id="a" href="http://localhost:3000/RegisterSearchBabySiter">אין לך חשבון? הרשם עכשיו</a>
+<div id='divblue'>
+   <a id="as" href="http://localhost:3000/About">?זקוק לעזרה</a>
+   <a id="href" href="http://localhost:3000/About">אודותינו</a>
+   <R id='r'></R>
+   </div>
        <button onClick={RegisterSearchBabySiter}>RegisterSearchBabySiter</button>
               <button onClick={Opinion}>Opinion</button>
 
