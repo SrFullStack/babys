@@ -21,7 +21,7 @@ export default function BaByStack(data) {
       }
 
   
-
+///
   return (<div>  
        <div  dir="rtl">
         <div id="cardd"> <p id="name">{data.obj.firstName} {data.obj.lastName}</p></div>
