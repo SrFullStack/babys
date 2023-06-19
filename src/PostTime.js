@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Checkbox } from 'primereact/checkbox';
 import AddTimeForm from "./AddTimeForm";
-
+import Basis from "./Basis";
+import "./PostTime.css";
 
 export default function PostTime(props) {
   const emptyDay = { day: '', timeOfDay: [], rate: '', neighborhood: [] }
@@ -16,7 +17,7 @@ export default function PostTime(props) {
       const [neighborhoodd, setNeighborhoodd] = useState({ namee:"" ,idd:""})
       const[v,sv]=useState({f:"",g:""});
       const [timeToAdd, setTimeToAdd] = useState({ timeOfDay: "", rate: "",d:"" })
-
+   
   const location = useLocation();
   const { babysiter } = location?.state;
   const [isChecked, setIsChecked] = useState([]);
@@ -137,6 +138,10 @@ export default function PostTime(props) {
   return (
 
     <div>
+      <Basis></Basis>
+      <p id="propil">פרופיל אישי</p>
+      <p id="namee">{babysiter.firstName}</p>
+     
       {/* <h1>{babySitters.map((b)=>{return <p>{b.name}</p>})}</h1> */}
       <h1>hello  {babysiter.firstName}!!!!!!!!! enter time</h1>
 

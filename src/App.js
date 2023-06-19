@@ -16,7 +16,8 @@ import AddReqeust from './AddReqeust';
 import Opinion from './Opinion';
 import About from './About';
 import BabyStack from './BaByStack'
-import Example from './carusel.js'
+import Example from './carusel.js';
+import Basis from './Basis.js';
 const App = () => (
 
 
@@ -34,6 +35,7 @@ const App = () => (
       <Route path="/About" element={<About />}></Route>
       <Route path="/GetallBabyMenu" element={<GetallBabyMenu />}></Route>
       <Route path="/BaByStack" element={<BabyStack />}></Route>
+      <Route path="/Basis" element={<Basis />}></Route>
     </ Routes>
     {/* <Example/> */}
   </BrowserRouter>

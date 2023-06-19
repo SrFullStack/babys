@@ -3,7 +3,8 @@ import PostTime from "./PostTime"
 import { useEffect } from "react";
 import axios from "axios";
 import { Checkbox } from 'primereact/checkbox';
-
+import "./PostTime.css";
+import { ReactComponent as TIME } from "./time.svg";
 const AddTimeForm = ({ babysiterId, m }) => {
   // const [day, setDay] = useState("");
   // const [TimeOfDay, setTimeOfDay] = useState("");
@@ -113,8 +114,8 @@ const AddTimeForm = ({ babysiterId, m }) => {
   // const func=()=>{
   //     <PostTime timeToAdd={timeToAdd}></PostTime>
   // }
-  
-  return <div>
+ 
+  return <div> <TIME id="time"></TIME>
     {/* <div className="card flex flex-wrap justify-content-center gap-3">
             <div className="flex align-items-center">
                 <Checkbox inputId="ingredient1" name="pizza" value="Cheese" onChange={onIngredientsChange} checked={ingredients.includes('Cheese')} />
@@ -135,7 +136,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
 
     </select>
 
-    <select defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, day: [...timeToAdd.day, e.target.value] })}>
+    <select id="dayy" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, day: [...timeToAdd.day, e.target.value] })}>
       <option value="DEFAULT" disabled>Choose a day...</option>
       <option value="Sunday" >Sunday </option>
       <option value="Monday">Monday</option>
@@ -146,7 +147,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
     </select>
 
 
-    <select defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, timeOfDay: [...timeToAdd.timeOfDay, e.target.value] })} >
+    <select id="add" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, timeOfDay: [...timeToAdd.timeOfDay, e.target.value] })} >
 
       <option value="DEFAULT" disabled>Choose a time of the day...</option>
       <option value="morning" >morning </option>

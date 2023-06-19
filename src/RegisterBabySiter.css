@@ -1,0 +1,122 @@
+#ershame{
+    position: absolute;
+    width: 412.19px;
+height: 408.63px;
+    left: 570px;
+    top: 200px;
+  
+}
+#d{
+    position: absolute;
+    width: 132.04px;
+    height: 423.11px;
+    left: 53%;
+    top: 680px;
+}
+#first{
+    box-sizing: border-box;
+    position: absolute;
+    width: 393.47px;
+    height: 54px;
+    left: 36%;
+    top: 721.63px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 21px;
+}
+#last{
+    box-sizing: border-box;
+
+position: absolute;
+width: 393.47px;
+height: 54.86px;
+left: 36%;
+top: 820.63px;
+
+background: #FFFFFF;
+border: 0.676124px solid #2F4B6F;
+border-radius: 17.5792px;
+}
+#emaill{
+    box-sizing: border-box;
+    position: absolute;
+    width: 393.47px;
+    height: 54.86px;
+    left: 545.31px;
+    top: 920.63px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 17.5792px;
+}
+#telphone{
+    box-sizing: border-box;
+    position: absolute;
+    width: 393.47px;
+    height: 54.86px;
+    left: 545.31px;
+    top: 1022.63px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 17.5792px;
+}
+#agee{
+    box-sizing: border-box;
+    position: absolute;
+    width: 393.47px;
+    height: 54.86px;
+    left: 545.31px;
+    top: 1120px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 17.5792px;
+}
+#d2{
+    left: 800px;
+    top: 1190px;
+    position: absolute;
+}
+#password{
+    box-sizing: border-box;
+    position: absolute;
+    width: 393.47px;
+    height: 54.86px;
+    left: 545.31px;
+    top: 1220px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 17.5792px; 
+}
+#reqest{
+    box-sizing: border-box;
+    position: absolute;
+    width: 393.47px;
+    height: 99.46px;
+    left: 545.73px;
+    top: 1320.11px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 17.5792px;
+}
+#divb{
+    background: #9CBDFF;
+    position: absolute;
+    width: 1500px;
+    height: 305px;
+    left: calc(50% - 1437px/2 - 22px);
+    top: 1603px;
+   
+}
+#register{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 5px 25px;
+    gap: 10px;
+    position: absolute;
+    width: 90px;
+    height: 33px;
+    left: 700px;
+    top: 1480px;
+    background: #F8BCD6;
+    border-radius: 33px;
+}

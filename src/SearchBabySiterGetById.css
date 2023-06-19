@@ -202,3 +202,12 @@ color: #2F4B6F;
     height: 49.52px;
     left: 75%;
     top: 60%;}
+    #Lo{
+        width: 101px;
+        height: 101px;
+        filter: drop-shadow(3px 4px 17px rgba(175, 143, 233, 0.35));
+        position: absolute;
+        top: 35%;
+        left: 4%;
+       
+    }

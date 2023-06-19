@@ -2,8 +2,23 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
+
+
+import "./RegisterBabySiter.css";
+import { ReactComponent as E } from "./ershame.svg";
+import { ReactComponent as D} from "./datils.svg";
+import { ReactComponent as D2} from "./datils2.svg";
+
+import { ReactComponent as O } from "./logocircel.svg";
+import { ReactComponent as T } from "./textt.svg";
+
+
+
+import { ReactComponent as R } from "./kitov.svg";
+import { ReactComponent as L } from "./logo2.svg";
 export default function RegisterBabySiter() {
     const [password, setPassword] = useState("");
+
     const [email, setEmail] = useState("");
     const [firstName,setFirstName]=useState("");
     const[lastName,setLastName]=useState("");
@@ -72,19 +87,46 @@ const registerOptions = {
         },
       },
 }
-    
+
+ 
+const babysiterr = () => {
+   
+  navigate("/BabySiterGetById", { replace: false })
+}
+const searchBabySiter = () => {
+  navigate("/SearchBabySiterGetById", { replace: false })
+}
 
 
     return (<div>
-    <h1>RegisterBabySiter</h1>
-    <input  {...register("password", registerOptions.password)} className="input" type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} /><br></br>
-    <input {...register("email", registerOptions.email)} className="input" type="text" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
-    <input {...register("firstName", registerOptions.firstName)} className="input" type="text" placeholder='firstName' onChange={(e) => setFirstName(e.target.value)} /><br></br>
-    <input className="input" type="text" placeholder='lastName' onChange={(e) => setLastName(e.target.value)} /><br></br>
-    <input className="input" type="number" placeholder='age' onChange={(e) => setAge(e.target.value)} /><br></br>
-    <input {...register("phone", registerOptions.phone)} className="input" type="text" placeholder='phone' onChange={(e) => setPhone(e.target.value)} /><br></br>
-    <input  className="input" type="text" placeholder='description' onChange={(e) => setDescription(e.target.value)} /><br></br>
-    <button onClick={Register}>Register</button>
+         <O id='O'></O>
+        <div id="towbt">
+   <button id="btbabisiter" onClick={babysiterr}>חיפוש עבודה      </button>
+    <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
+   
+    
+   </div >
+  
+
+<div id='divb'>
+   <a id="as" href="http://localhost:3000/About">?זקוק לעזרה</a>
+   <a id="href" href="http://localhost:3000/About">אודותינו</a>
+   <R id='r'></R>
+   <div  id="Lo"> <L></L></div>
+  
+   </div>
+      <div id="ershame"><E ></E></div>
+      <D id="d"></D>
+      <D2 id="d2"></D2>
+
+    <input id="password"  {...register("password", registerOptions.password)} className="input" type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} /><br></br>
+    <input id="emaill" {...register("email", registerOptions.email)} className="input" type="text" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
+    <input id="first" {...register("firstName", registerOptions.firstName)} className="input" type="text" placeholder='firstName' onChange={(e) => setFirstName(e.target.value)} /><br></br>
+    <input  id="last" className="input" type="text" placeholder='lastName' onChange={(e) => setLastName(e.target.value)} /><br></br>
+    <input id="agee" className="input" type="number" placeholder='age' onChange={(e) => setAge(e.target.value)} /><br></br>
+    <input id="telphone"{...register("phone", registerOptions.phone)} className="input" type="text" placeholder='phone' onChange={(e) => setPhone(e.target.value)} /><br></br>
+    <input id="reqest" className="input" type="text" placeholder='description' onChange={(e) => setDescription(e.target.value)} /><br></br>
+    <button id="register" onClick={Register}>שמירה</button>
     </div>);
 };
 
