@@ -21,6 +21,7 @@ import { ReactComponent as PM  } from "./MenuM.svg";
 import { ReactComponent as TM  } from "./MenuTM.svg";
 import { ReactComponent as V  } from "./MenuV.svg";
 import { ReactComponent as L } from "./Menulogoo.svg";
+import { ReactComponent as R } from "./kitov.svg";
 
 import axios from "axios";
 import { ReactComponent as A } from "./MenuAb.svg";
@@ -285,7 +286,7 @@ return (
    <div>
    <P id="P"></P>
    {/* <button id="About"onClick={About}>קרא עוד</button> */}
-   <button id="About"onClick={About}><p id="p">קרא עוד</p> </button>
+   <button id="About"onClick={About}>קרא עוד </button>
 
    </div>
 
@@ -303,9 +304,10 @@ return (
    <div id="lmata">
     <div id="LO">   <L></L></div>
 
-   <a id="a" href="http://localhost:3000/About">?זקוק לעזרה</a>
+   <a id="ac" href="http://localhost:3000/About">?זקוק לעזרה</a>
    <a id="href" href="http://localhost:3000/About">אודותינו</a>
-   <A id="ab"></A>
+   <R id="r"></R>
+   {/* <A id="ab"></A> */}
    {/* <div id="span">אופן השירות</div> */}
    {/* <p id="span">שירות הלוקות</p> */}
    </div>

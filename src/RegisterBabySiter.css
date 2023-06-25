@@ -120,3 +120,14 @@ border-radius: 17.5792px;
     background: #F8BCD6;
     border-radius: 33px;
 }
+#passwordF{
+    box-sizing: border-box;
+    position: absolute;
+    width: 393.47px;
+    height: 54.86px;
+    left: 545.31px;
+    top: 1115px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 17.5792px;
+}

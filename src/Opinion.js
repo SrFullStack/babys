@@ -3,8 +3,13 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import React from 'react';
+import Basis from "./Basis";
+import { ReactComponent as TM  } from "./MenuTM.svg";
+import "./Opinion.css";
+import { ReactComponent as PM  } from "./MenuM.svg";
+import { ReactComponent as V  } from "./MenuV.svg";
 export default function Opinion() {
-  
+   
     const [email, setEmail] = useState("");
     const [babysiter, setbabysiter] = useState("");
 
@@ -75,10 +80,15 @@ if(babysiter.Age>10){
          
          }
     return (<div>
-   <h1>הכנס מייל של הביביסיטר וכתוב תגובה </h1>
-   Opinion
-   <input className="input"  placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
-   <button onClick={UpdateOpinion}>updateOpinion</button>
+        <Basis></Basis>
+        <div id="sgol">  <PM id="PMM"></PM><TM id="t"></TM><V id="v"></V>
+        <input id="mmmail" className="input"  placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
+
+        </div>
+    
+   
+   
+   <button id="UpdateOpinion" onClick={UpdateOpinion}>ההמלצה</button>
 
     </div>);
 };

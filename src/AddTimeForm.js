@@ -5,6 +5,7 @@ import axios from "axios";
 import { Checkbox } from 'primereact/checkbox';
 import "./PostTime.css";
 import { ReactComponent as TIME } from "./time.svg";
+import { ReactComponent as E } from "./eare.svg";
 const AddTimeForm = ({ babysiterId, m }) => {
   // const [day, setDay] = useState("");
   // const [TimeOfDay, setTimeOfDay] = useState("");
@@ -115,7 +116,9 @@ const AddTimeForm = ({ babysiterId, m }) => {
   //     <PostTime timeToAdd={timeToAdd}></PostTime>
   // }
  
-  return <div> <TIME id="time"></TIME>
+  return <div>
+     <TIME id="time"></TIME>
+     <E id="era"></E>
     {/* <div className="card flex flex-wrap justify-content-center gap-3">
             <div className="flex align-items-center">
                 <Checkbox inputId="ingredient1" name="pizza" value="Cheese" onChange={onIngredientsChange} checked={ingredients.includes('Cheese')} />
@@ -128,7 +131,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
           
         </div> */}
     {/* <input className="input"  placeholder='rate'  onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}/> */}
-    <select defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}>
+    <select id="rate" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}>
       <option value="DEFAULT" disabled>Choose a rate...</option>
       <option value="20" >20 </option>
       <option value="30">30</option>
@@ -157,6 +160,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
       <option value="evening">evening</option>
       <option value="night">night</option>
     </select>
+  
     {/* {neighborhoods.map((n, index) =>
         (<div key={index}> <label>{n.name}</label>
             <input type="checkbox" id="topping" name="topping" value={n.id} onChange={e => {
@@ -164,8 +168,8 @@ const AddTimeForm = ({ babysiterId, m }) => {
                 setTimeToAdd({ ...timeToAdd, neighborhood: timeToAdd.neighborhood.filter(n => n !== e.target.value) })
             }} /></div>))} */}
     {neighborhoods.map((n, index) =>
-    (<div key={index}> <label>{n.name}</label>
-      <input type="checkbox" id="topping" name="topping" value={n.id} onChange={e => {
+    (<div key={index}> <label id="la">{n.name}</label>
+      <input  type="checkbox" id="topping" name="topping" value={n.id} onChange={e => {
         var neighborhoodsTemp = e.target.checked ? [...timeToAdd.neighborhood, e.target.value] : timeToAdd.neighborhood.filter(i => i !== e.target.value)
         // neighborhoodsTemp[index]=e.target.value
         return setTimeToAdd({ ...timeToAdd, neighborhood: neighborhoodsTemp })
@@ -196,7 +200,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
     {/* <button onClick={() => addBabysitterTime(timeToAdd)}>submit</button> */}
     {/* <button  onClick={func}>ok</button> */}
 
-    <button onClick={PostTimeB}>PostTimeB</button>
+    <button id="PostTimeB" onClick={PostTimeB}>שמירה</button>
     {/* <button onClick={handleOnChange}>handleOnChange</button> */}
 
   </div>

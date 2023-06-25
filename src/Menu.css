@@ -317,22 +317,33 @@
     }
     a{
         position: absolute;
-    width: 128.05px;
-    height: 29.13px;
-    left: 88%;
-    top: 40%;
-    
-    font-family: 'Kufam';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20.9865px;
-    line-height: 150%;
-    /* or 31px */
-    
-    text-align: center;
-    letter-spacing: -0.011em;
-    
-    color: #2F2424;
+        width: 128.05px;
+        height: 29.13px;
+        left: 88%;
+        top: 40%;
+        font-family: 'Kufam';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20.9865px;
+        line-height: 150%;
+        text-align: center;
+        letter-spacing: -0.011em;
+        color: #2F2424;
+    }
+    #ac{
+        position: absolute;
+        width: 128.05px;
+        height: 29.13px;
+        left: 88%;
+        top: 40%;
+        font-family: 'Kufam';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20.9865px;
+        line-height: 150%;
+        text-align: center;
+        letter-spacing: -0.011em;
+        color: #2F2424;
     }
     /* span{
         position: absolute;

@@ -143,7 +143,7 @@ export default function PostTime(props) {
       <p id="namee">{babysiter.firstName}</p>
      
       {/* <h1>{babySitters.map((b)=>{return <p>{b.name}</p>})}</h1> */}
-      <h1>hello  {babysiter.firstName}!!!!!!!!! enter time</h1>
+      <h1>  {babysiter.firstName}</h1>
 
       {id}
       {/* {Array(numberOfForms).map((_, index) => <AddTimeForm key={index} addBabysitterTime={(bt) => setBabysitterTimes([...babysitterTimes, bt])} />)} */}
