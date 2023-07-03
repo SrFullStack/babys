@@ -139,13 +139,13 @@ export default function PostTime(props) {
 
     <div>
       <Basis></Basis>
-      <p id="propil">פרופיל אישי</p>
+      <div id="propil">פרופיל אישי</div>
       <p id="namee">{babysiter.firstName}</p>
      
       {/* <h1>{babySitters.map((b)=>{return <p>{b.name}</p>})}</h1> */}
-      <h1>  {babysiter.firstName}</h1>
+      {/* <h1>  {babysiter.firstName}</h1> */}
 
-      {id}
+      {/* {id} */}
       {/* {Array(numberOfForms).map((_, index) => <AddTimeForm key={index} addBabysitterTime={(bt) => setBabysitterTimes([...babysitterTimes, bt])} />)} */}
       {numberOfForms}
       {/* <select defaultValue={'DEFAULT'} value={day} onChange={e => setDay(e.target.value)} >

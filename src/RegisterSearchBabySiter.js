@@ -76,7 +76,7 @@ export default function RegisterSearchBabySiter() {
     <input  id="first" className="input" type="text" placeholder='firstName' onChange={(e) => setFirstName(e.target.value)} /><br></br>
     <input    id="last" className="input" type="text" placeholder='lastName' onChange={(e) => setLastName(e.target.value)} /><br></br>
     <input  id="telphone" className="input" type="text" placeholder='phone' onChange={(e) => setPhone(e.target.value)} /><br></br>
-    <button onClick={check}>Register</button>
+    <button id="search" onClick={check}>Register</button>
     </div>);
 };
 

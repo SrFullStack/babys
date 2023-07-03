@@ -6,6 +6,7 @@ import { Checkbox } from 'primereact/checkbox';
 import "./PostTime.css";
 import { ReactComponent as TIME } from "./time.svg";
 import { ReactComponent as E } from "./eare.svg";
+import { colors } from "@mui/material";
 const AddTimeForm = ({ babysiterId, m }) => {
   // const [day, setDay] = useState("");
   // const [TimeOfDay, setTimeOfDay] = useState("");
@@ -116,9 +117,17 @@ const AddTimeForm = ({ babysiterId, m }) => {
   //     <PostTime timeToAdd={timeToAdd}></PostTime>
   // }
  
-  return <div>
-     <TIME id="time"></TIME>
-     <E id="era"></E>
+  return <div style={{display:"flex",flexDirection: "column",
+  // alignItems: "center",
+  alignItems: "flex-start",
+  justifyContent: "space-between",
+  height: "330px",
+    width: "40%",
+    marginLeft: "56%",
+    marginTop: "130px"
+}}>
+     {/* <TIME className="time"></TIME>
+     <E className="era"></E> */}
     {/* <div className="card flex flex-wrap justify-content-center gap-3">
             <div className="flex align-items-center">
                 <Checkbox inputId="ingredient1" name="pizza" value="Cheese" onChange={onIngredientsChange} checked={ingredients.includes('Cheese')} />
@@ -130,16 +139,19 @@ const AddTimeForm = ({ babysiterId, m }) => {
             </div>
           
         </div> */}
-    {/* <input className="input"  placeholder='rate'  onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}/> */}
-    <select id="rate" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}>
+   
+   <div >{/* <input className="input"  placeholder='rate'  onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}/> */}
+   <label className="zmanim">תעריף</label>
+    <select className="rate" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}>
       <option value="DEFAULT" disabled>Choose a rate...</option>
       <option value="20" >20 </option>
       <option value="30">30</option>
       <option value="40">40</option>
 
     </select>
-
-    <select id="dayy" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, day: [...timeToAdd.day, e.target.value] })}>
+</div> 
+<label className="yamim">ימים</label>
+    <select className="dayy" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, day: [...timeToAdd.day, e.target.value] })}>
       <option value="DEFAULT" disabled>Choose a day...</option>
       <option value="Sunday" >Sunday </option>
       <option value="Monday">Monday</option>
@@ -149,8 +161,8 @@ const AddTimeForm = ({ babysiterId, m }) => {
       <option value="Friday">Friday</option>
     </select>
 
-
-    <select id="add" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, timeOfDay: [...timeToAdd.timeOfDay, e.target.value] })} >
+    <label className="time_of_day">זמן ביום</label>
+    <select className="add" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, timeOfDay: [...timeToAdd.timeOfDay, e.target.value] })} >
 
       <option value="DEFAULT" disabled>Choose a time of the day...</option>
       <option value="morning" >morning </option>
@@ -167,14 +179,17 @@ const AddTimeForm = ({ babysiterId, m }) => {
                 if (e.checked) return setTimeToAdd({ ...timeToAdd, neighborhood: [...timeToAdd.neighborhood, e.target.value] })
                 setTimeToAdd({ ...timeToAdd, neighborhood: timeToAdd.neighborhood.filter(n => n !== e.target.value) })
             }} /></div>))} */}
-    {neighborhoods.map((n, index) =>
-    (<div key={index}> <label id="la">{n.name}</label>
-      <input  type="checkbox" id="topping" name="topping" value={n.id} onChange={e => {
+    <div style={{display:"flex",
+    background:"red",
+    justifyContent: "space-around"
+  }}>{neighborhoods.map((n, index) =>
+    (<div key={index}> <label className="la">{n.name}</label>
+      <input  type="checkbox" className="topping" name="topping" value={n.id} onChange={e => {
         var neighborhoodsTemp = e.target.checked ? [...timeToAdd.neighborhood, e.target.value] : timeToAdd.neighborhood.filter(i => i !== e.target.value)
         // neighborhoodsTemp[index]=e.target.value
         return setTimeToAdd({ ...timeToAdd, neighborhood: neighborhoodsTemp })
 
-      }} /></div>))}
+      }} /></div>))}</div>
 
 
       {/* //map map */}
