@@ -72,6 +72,20 @@ const AddTimeForm = ({ babysiterId, m }) => {
 
     setIsChecked(!isChecked);
   };
+  const CheckRequsetSearch=async(PRICE,DAY,PartOfDay,NeighborhoodId)=>{
+    try {
+      
+      axios.get(`https://localhost:44312/api/RequsetSearchBabysiter/RequsetSearch?price=${PRICE}&day=${DAY}&part_of_day=${PartOfDay}&neighborhood_id=${NeighborhoodId}`)
+        .then(response => {
+  
+         
+        })
+    }
+    catch (err) {
+      console.error(err);
+    }
+  alert(NeighborhoodId);
+  }
   const PostTimeB = async () => {
     setTimeToAdd({ ...timeToAdd, d: [...timeToAdd.d,"d"] })
 
@@ -94,6 +108,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
     try {
       await axios.post(`https://localhost:44312/api/Time`, time)
         .then(response => (console.log(response.data.DAY)));
+
       alert("הפרטים נוספו בהצלחה")
       //   for (let index = 0; index < isChecked.length; index++) {
       //     const i = JSON.parse(isChecked[index]);
@@ -105,8 +120,9 @@ const AddTimeForm = ({ babysiterId, m }) => {
 
         await axios.post(`https://localhost:44312/api/NeighborhoodBabysiter`, neighborhoodbaby)
           .then(response => (console.log(response.data.DAY)));
-
+          CheckRequsetSearch(time.PRICE,time.DAY,time.PartOfDay,neighborhoodbaby.NeighborhoodId);  
       }
+    
     }
     catch (err) {
       console.log(err);
