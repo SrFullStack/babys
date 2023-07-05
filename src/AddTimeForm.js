@@ -137,7 +137,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
   // alignItems: "center",
   alignItems: "flex-start",
   justifyContent: "space-between",
-  height: "330px",
+  height: "461px",
     width: "40%",
     marginLeft: "56%",
     marginTop: "130px"
@@ -195,9 +195,13 @@ const AddTimeForm = ({ babysiterId, m }) => {
                 if (e.checked) return setTimeToAdd({ ...timeToAdd, neighborhood: [...timeToAdd.neighborhood, e.target.value] })
                 setTimeToAdd({ ...timeToAdd, neighborhood: timeToAdd.neighborhood.filter(n => n !== e.target.value) })
             }} /></div>))} */}
+                <label className="time_of_day"> שכונות</label>
+
     <div style={{display:"flex",
-    background:"red",
-    justifyContent: "space-around"
+   
+    justifyContent: "space-around",
+    marginLeft: "28%",
+    width:"230px"
   }}>{neighborhoods.map((n, index) =>
     (<div key={index}> <label className="la">{n.name}</label>
       <input  type="checkbox" className="topping" name="topping" value={n.id} onChange={e => {
