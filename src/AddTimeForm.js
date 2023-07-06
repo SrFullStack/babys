@@ -100,10 +100,10 @@ const AddTimeForm = ({ babysiterId, m }) => {
     //SEARCHBABY DTOלסד 
     //let id1 = JSON.parse(id);
 
-    alert(timeToAdd.day);
-
+    alert(  timeToAdd.day[timeToAdd.day.length-1] );
+alert(timeToAdd.timeOfDay[timeToAdd.timeOfDay.length-1]);
     const time = {
-      BabysiterId: babysiterId, DAY: timeToAdd.day[0], PartOfDay: timeToAdd.timeOfDay[0], PRICE: rat1
+      BabysiterId: babysiterId, DAY: timeToAdd.day[timeToAdd.timeOfDay.length-1], PartOfDay: timeToAdd.timeOfDay[timeToAdd.day.length-1], PRICE: rat1
     };
     try {
       await axios.post(`https://localhost:44312/api/Time`, time)
@@ -158,7 +158,9 @@ const AddTimeForm = ({ babysiterId, m }) => {
    
    <div >{/* <input className="input"  placeholder='rate'  onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}/> */}
    <label className="zmanim">תעריף</label>
-    <select className="rate" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}>
+   <select className="rate" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate:  e.target.value })}>
+
+    {/* <select className="rate" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}> */}
       <option value="DEFAULT" disabled>Choose a rate...</option>
       <option value="20" >20 </option>
       <option value="30">30</option>

@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Checkbox } from 'primereact/checkbox';
 import AddTimeForm from "./AddTimeForm";
-import Basis from "./Basis";
+import { ReactComponent as L } from "./Menulogoo.svg";
 import "./PostTime.css";
-
+import { ReactComponent as R } from "./kitov.svg";
 export default function PostTime(props) {
   const emptyDay = { day: '', timeOfDay: [], rate: '', neighborhood: [] }
   const [babysitterTimes, setBabysitterTimes] = useState([emptyDay])
@@ -86,17 +86,17 @@ export default function PostTime(props) {
   const handleOnChange = () => {
     setIsChecked(!isChecked);
   };
-  const finisha = () => {
-    //sets({ ...s, id: [...s.id, 3] })
-    //setNeighborhoodd({...neighborhoodd,name:[...neighborhoodd.name,"oo"]})
-    // setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate,"rate"] })
-    // setTimeToAdd({ ...timeToAdd, neighborhood: [...timeToAdd.neighborhood,"neboord"] })
-    // sv({...v,f:[...v.f,"cd"]});
-    // sv({...v,g:[...v.g,"sari"]});
-    setTimeToAdd({ ...timeToAdd, d: [...timeToAdd.d,"d"] })
+  // const finisha = () => {
+  //   //sets({ ...s, id: [...s.id, 3] })
+  //   //setNeighborhoodd({...neighborhoodd,name:[...neighborhoodd.name,"oo"]})
+  //   // setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate,"rate"] })
+  //   // setTimeToAdd({ ...timeToAdd, neighborhood: [...timeToAdd.neighborhood,"neboord"] })
+  //   // sv({...v,f:[...v.f,"cd"]});
+  //   // sv({...v,g:[...v.g,"sari"]});
+  //   setTimeToAdd({ ...timeToAdd, d: [...timeToAdd.d,"d"] })
    
 
-  }
+  // }
   const idh = () => {
     setTimeToAdd({ ...timeToAdd, timeOfDay: [...timeToAdd.timeOfDay," e.target.value"] })
    
@@ -135,10 +135,25 @@ export default function PostTime(props) {
     //setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, "e.target.value"] })
     setNumberOfForms((prev) => [...prev, <AddTimeForm babysiterId={id} key={prev.length} />])
   }
+  const babysiterr = () => {
+   
+    navigate("/BabySiterGetById", { replace: false })
+  }
+  const searchBabySiter = () => {
+    navigate("/SearchBabySiterGetById", { replace: false })
+  }
+  
   return (
 
     <div>
-      <Basis></Basis>
+   <div id="towbt">
+   <button id="btbabisiter" onClick={babysiterr}>חיפוש עבודה      </button>
+    <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
+    {/* <button onClick={RequsetSearchBabysiterr}>חיפוש RequsetSearchBabysiterr</button> */}
+    <L id="L"></L>
+
+    
+   </div >
       <div id="propil">פרופיל אישי</div>
       <p id="namee">{babysiter.firstName}</p>
      
@@ -180,9 +195,21 @@ export default function PostTime(props) {
 
       {/* <button onClick={PostTimeB}>PostTimeB</button> */}
       <button onClick={idh}>id</button>
-      <button onClick={finish}>finish</button>
+      <button className="finish" onClick={finish}>הוספת משרה</button>
       {/* <button  onClick={func}>ok</button> */}
-      <button onClick={finisha}>בדיקה</button>
+      {/* <button onClick={finisha}>בדיקה</button> */}
+
+
+      <div id="lmata">
+    <div id="LO">   <L></L></div>
+
+   <a id="ac" href="http://localhost:3000/About">?זקוק לעזרה</a>
+   <a id="href" href="http://localhost:3000/About">אודותינו</a>
+   <R id="r"></R>
+   {/* <A id="ab"></A> */}
+   {/* <div id="span">אופן השירות</div> */}
+   {/* <p id="span">שירות הלוקות</p> */}
+   </div>
 
     </div>);
 };
