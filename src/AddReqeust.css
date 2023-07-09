@@ -1,3 +1,60 @@
+#propil{
+    /* position: absolute;
+width: 145px;
+height: 34px;
+left: calc(50% - 145px/2 + 386px);
+top: 206px; */
+
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+font-size: 29.0733px;
+line-height: 34px;
+text-align: center;
+
+color: #2F4B6F;
+display: inline-block;
+margin-top: 120px;
+margin-left: 1100px;
+}
+#namee{
+    width: 99px;
+    height: 36px;
+    font-family: 'Kufam';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: -0.011em;
+    color: #2F4B6F;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+    position: absolute;
+    width: 152px;
+    height: 41px;
+    left: 1170px;
+    top: 200px;
+}
+
+.zmanim{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26.0733px;
+    line-height: 34px;
+    text-align: center;
+    color: #2F4B6F;
+    display: inline-block;
+    margin-left: 76%;
+    margin-top: 4%;
+}
 #btbabisiter{
        
     position: absolute;
@@ -119,18 +176,8 @@ margin-left: 1100px;
     left: 950px;
     top: 350px;
 }
-.dayy{
-    box-sizing: border-box;
-    /* position: absolute; */
-    width: 393.47px;
-    height: 54.86px;
-     /* left: 798px;
-    top: 400px;  */
-    background: #FFFFFF;
-    border: 0.676124px solid #2F4B6F;
-    border-radius: 17.5792px;
-}
-.rate{
+
+.ratee{
     box-sizing: border-box;
     /* position: absolute; */
     width: 393.47px;
@@ -140,8 +187,9 @@ margin-left: 1100px;
     background: #FFFFFF;
     border: 0.676124px solid #2F4B6F;
     border-radius: 17.5792px;
+    margin-left: 54%;
 }
-.add{
+.addd{
     box-sizing: border-box;
     /* position: absolute; */
     width: 393.47px;
@@ -151,6 +199,8 @@ margin-left: 1100px;
     background: #FFFFFF;
     border: 0.676124px solid #2F4B6F;
     border-radius: 17.5792px;
+    margin-top: 0%;
+    margin-left: 54%;
 }
 .era{
     /* background-color: #2F4B6F; */
@@ -189,7 +239,7 @@ margin-left: 1100px;
 
 
 }
-.zmanim{
+.zmanimm{
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
@@ -199,9 +249,9 @@ margin-left: 1100px;
     color: #2F4B6F;
     display: inline-block;
     margin-left: 76%;
-    margin-top: 4%;
+    margin-top: 1%;
 }
-.yamim{
+.yamimm{
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
@@ -212,19 +262,10 @@ margin-left: 1100px;
     color: #2F4B6F;
     display: inline-block;
     margin-left: 58%;
+    margin-left: 76%;
+    margin-top: 1%;
 }
-.time_of_day{
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26.0733px;
 
-    line-height: 34px;
-    text-align: center;
-    color: #2F4B6F;
-    display: inline-block;
-    margin-left: 52%; 
-}
 #lmata{
     position: absolute;
     width: 100%;
@@ -318,6 +359,7 @@ top: 9.51px;
     position: absolute;
     width: 316.41px;
     height: 49.52px;
+
     left: 75%;
     top: 60%;
 }
@@ -336,15 +378,66 @@ top: 9.51px;
     left: 65%;
 
 }
-#GetAllReweustBabister{
-    position: absolute;
-    width: 12%;
-    height: 5%;
-    background: #6D94E4;
-    border-radius: 25.0166px;
+.dayy1 {
+    box-sizing: border-box;
+    /* position: absolute; */
+    width: 393.47px;
+    height: 54.86px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 17.5792px;
+    margin-left: 54%;
+    margin-top: 0%;
+}
+.ttime_of_day{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26.0733px;
 
-    flex: none;
-    order: 0;
-    left: 72%;
-    top: 27%;
+    line-height: 34px;
+    text-align: center;
+    color: #2F4B6F;
+    
+    margin-left: 53%;
+    margin-top: 9%;
+
+}
+.sconoot{
+    box-sizing: border-box;
+    /* position: absolute; */
+    width: 393.47px;
+    height: 54.86px;
+    background: #FFFFFF;
+    border: 0.676124px solid #2F4B6F;
+    border-radius: 17.5792px;
+    margin-left: 54%;
+    margin-top: 0%;
+}
+.time_of_dayyy{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26.0733px;
+    line-height: 34px;
+    text-align: center;
+    color: #2F4B6F;
+    display: inline-block;
+    margin-left: 75%;
+}
+.shmira{
+    display: flex;
+    padding: 5px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 33px;
+    background: #F8BCD6;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    /* position: absolute; */
+    margin-left: 27%;
+    margin-top: 8%;
+    left: 65%;
+    margin-left: 63%;
+    margin-top: 4%
 }

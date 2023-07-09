@@ -299,6 +299,7 @@ return (
     <TM id="TM"></TM>
     <input id="inputemail" className="input"  placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
    <button id="up" onClick={UpdateOpinion}>ההמלצה</button>
+   <a id="aml" href="http://localhost:3000/Opinion">לדף ההמלצה</a>
 
    </div>
    <div id="lmata">

@@ -18,15 +18,16 @@ export default function BabySiterGetById() {
    
     const BabySiterGetById =async ()=>{
    try{
-
+ 
       
      await axios.get(`https://localhost:44312/api/BabySiter/Get?Password=${password}&Email=${email}`)
    
         .then(response =>{
           if(response.data.babysiterId!=undefined){
-            alert(response.data.babysiterId+"אתה שמור במערכת");  
-            
-navigate("/PostTime", { state: {babysiter:response.data}});
+            alert("אתה שמור במערכת");
+            const datils={Password:password,Email:email}  
+            navigate("/GetAllReweustBabister", { state: {datils}})
+// navigate("/PostTime", { state: {babysiter:response.data}});
           } 
             else{
               alert("הקוד או השם משתמש שגואים אם אינך קים אתה רשאי להרשם")

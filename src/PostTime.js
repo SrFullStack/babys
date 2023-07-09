@@ -15,9 +15,10 @@ export default function PostTime(props) {
   const [neighborhood, setNeighborhood] = useState({ name: ""});
       // const [timeToAdd, setTimeToAdd] = useState({  neighborhood: "", rate: "" })
       const [neighborhoodd, setNeighborhoodd] = useState({ namee:"" ,idd:""})
+      const [n, setN] = useState({ namee:"" ,idd:""})
       const[v,sv]=useState({f:"",g:""});
       const [timeToAdd, setTimeToAdd] = useState({ timeOfDay: "", rate: "",d:"" })
-   
+      const navigate = useNavigate();
   const location = useLocation();
   const { babysiter } = location?.state;
   const [isChecked, setIsChecked] = useState([]);
@@ -98,20 +99,18 @@ export default function PostTime(props) {
 
   // }
   const idh = () => {
-    setTimeToAdd({ ...timeToAdd, timeOfDay: [...timeToAdd.timeOfDay," e.target.value"] })
-   
-    
+    //setTimeToAdd({ ...timeToAdd, timeOfDay: [...timeToAdd.timeOfDay," e.target.value"] })
     // const [timeToAdd, setTimeToAdd] = useState({ day: [], timeOfDay: [], neighborhood: [], rate: "" })
     // <select defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}>
-
+alert(n);
     try {
       axios.get(`https://localhost:44312/api/Neighborhood`)
         .then(response => {
           for (let index = 0; index < response.data.length; index++) {
             const element = response.data[index];
-            
-            //alert(element.neighborhoodName)
-            setNeighborhoodd({ ...neighborhoodd, namee: [...neighborhoodd.namee, element.neighborhoodName] })
+          //איך מוציאים את כל השכונות בתוך מערך?
+          //  alert(element.n)
+            setN({ ...n, namee:  element.neighborhoodName })
            
             //setNeighborhood({ ...neighborhood, id: [...neighborhood.id, element.neighborhoodId] })
             
@@ -121,7 +120,7 @@ export default function PostTime(props) {
 
             //setNeighborhood([...element])
           }
-       alert(response.data.length)
+      // alert(response.data.length)
 //alert(neighborhood[0].id)
           //// alert(id)
          
@@ -142,7 +141,10 @@ export default function PostTime(props) {
   const searchBabySiter = () => {
     navigate("/SearchBabySiterGetById", { replace: false })
   }
-  
+  const GetAllReweustBabister = () => {
+
+    navigate("/GetAllReweustBabister", { state: {babysiterId:babysiter.babysiterId}})
+  }
   return (
 
     <div>
@@ -151,12 +153,12 @@ export default function PostTime(props) {
     <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
     {/* <button onClick={RequsetSearchBabysiterr}>חיפוש RequsetSearchBabysiterr</button> */}
     <L id="L"></L>
-
+    <button id="GetAllReweustBabister"onClick={GetAllReweustBabister}>לצפיה בפרפיל האישי שלי</button>
     
    </div >
       <div id="propil">פרופיל אישי</div>
-      <p id="namee">{babysiter.firstName}</p>
-     
+      <p id="namee">{babysiter.firstName} {babysiter.lastName}</p>
+
       {/* <h1>{babySitters.map((b)=>{return <p>{b.name}</p>})}</h1> */}
       {/* <h1>  {babysiter.firstName}</h1> */}
 

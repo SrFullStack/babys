@@ -3,6 +3,8 @@ import axios from "axios";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./SearchBabySiterGetById.css";
+
+
 import { ReactComponent as O } from "./logocircel.svg";
 import { ReactComponent as T } from "./textt.svg";
 import { ReactComponent as E } from "./em.svg";
@@ -42,8 +44,10 @@ export default function SearchBabySiterGetById() {
      await axios.get(`https://localhost:44312/api/SearchBabySiter/Get?Password=${password}&Email=${email}`)
         .then(response =>{
           if(response.data.searchBabysiterId!=undefined){
-            alert(response.data.searchBabysiterId+"את שמורה במערכת");  
-            navigate("/AddReqeust", { state: {SearchBabysiter:response.data}});
+            alert(response.data.searchBabysiterId+"את שמורה במערכת"); 
+             const PasswordAndEmail={password:password,email:email}
+             navigate("/GetallBabyMenu", { state: {PasswordAndEmail:PasswordAndEmail}}); 
+           
           }
           else{
             alert("הקוד או השם משתמש שגואים אם אינך קים אתה רשאי להרשם")

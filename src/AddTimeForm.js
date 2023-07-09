@@ -84,7 +84,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
     catch (err) {
       console.error(err);
     }
-  alert(NeighborhoodId);
+  // alert(NeighborhoodId);
   }
   const PostTimeB = async () => {
     setTimeToAdd({ ...timeToAdd, d: [...timeToAdd.d,"d"] })
@@ -100,8 +100,7 @@ const AddTimeForm = ({ babysiterId, m }) => {
     //SEARCHBABY DTOלסד 
     //let id1 = JSON.parse(id);
 
-    alert(  timeToAdd.day[timeToAdd.day.length-1] );
-alert(timeToAdd.timeOfDay[timeToAdd.timeOfDay.length-1]);
+
     const time = {
       BabysiterId: babysiterId, DAY: timeToAdd.day[timeToAdd.timeOfDay.length-1], PartOfDay: timeToAdd.timeOfDay[timeToAdd.day.length-1], PRICE: rat1
     };
@@ -155,7 +154,7 @@ alert(timeToAdd.timeOfDay[timeToAdd.timeOfDay.length-1]);
             </div>
           
         </div> */}
-   
+    
    <div >{/* <input className="input"  placeholder='rate'  onChange={e => setTimeToAdd({ ...timeToAdd, rate: [...timeToAdd.rate, e.target.value] })}/> */}
    <label className="zmanim">תעריף</label>
    <select className="rate" defaultValue={'DEFAULT'} onChange={e => setTimeToAdd({ ...timeToAdd, rate:  e.target.value })}>

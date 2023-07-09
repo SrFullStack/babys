@@ -43,6 +43,9 @@ export default function GetallBabyMenu() {
     const [neighborhood, Setneighborhood] = useState("")
     const [day, SetDay] = useState("")
     const navigate=useNavigate();
+
+    const location = useLocation();
+    const { PasswordAndEmail } = location?.state;
     // const [babySitters, setBabySitters] = useState([{BabysiterId:-1,FirstName:"",LastName:"",Age:0,Email:"",Password:"",Description:"",Phone:""
     // ,times:[{TimeId:0,BabysiterId:0,Day:"",PartOfDay:"",Price:0}],NeighborhoodBabysiter:[{NeighborhoodBabysiterId:0,BabysiterId:0,NeighborhoodId:0}]}])
     const [baby, setbaby] = useState([])
@@ -62,7 +65,22 @@ export default function GetallBabyMenu() {
             •
         </Box>
     );
-
+    const checkSearchBabySiterGetById =async ()=>{
+        try{
+          await axios.get(`https://localhost:44312/api/SearchBabySiter/Get?Password=${PasswordAndEmail.password}&Email=${PasswordAndEmail.email}`)
+             .then(response =>{
+                const searchbabysiterr = {FirstName:response.data.firstName,LastName:response.data.lastName,
+                    Phone:response.data.phone, Email:response.data.email,Password:response.data.password};
+                    navigate("/AddReqeust",{state:{searchbabysiterr:searchbabysiterr}})
+              
+             })
+          
+         }        
+         
+         catch (err) {
+             console.error(err);
+         }
+     }
     useEffect(() => {
 
 
@@ -142,7 +160,9 @@ const filter=()=>{
     //     // const filteredByPrice = babySitters.filter(bs => bs.time.some(t => t.price <= price))
     //     // setBabysittersBySearch(filteredByPrice)
     // }, [price,age,PartOfDay,day,neighborhood])
-  
+    const AddReqeust=()=>{
+        navigate("/AddReqeust")
+      }
     const RegisterSearchBabySiter=()=>{
         navigate("/SearchBabySiterGetById")
       }
@@ -167,9 +187,8 @@ const filter=()=>{
             <div id="w"><L id="L"></L>
    <div id="towbt">
   <button id="btbabisiterget" onClick={babysiterr}>חיפוש עבודה      </button>
-    <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
- 
-   
+    <button id="btsearchbabysiterrr"onClick={searchBabySiter}>חיפוש מועמדים</button>
+    {/* <button id="AddReqeust"onClick={AddReqeust}>חיפוש AddReqeust</button> */}
    </div></div>    
   
    <div id="div">
@@ -179,6 +198,8 @@ const filter=()=>{
      <div id="g">חיפוש</div>
      {/* תמונה לתןף */}
      {/* <D></D> */}
+     <button className="checkSearchBabySiterGetById" onClick={checkSearchBabySiterGetById}>להוספת בקשה  </button>
+
      <input id="price" placeholder=" price" className="input" label="price" onChange={(e) => Setprice(e.target.value)} /><br></br>
      <input id="age" className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
      <input id="day" className="input" type="text" placeholder='day' onChange={(e) => SetDay(e.target.value)} /><br></br>
@@ -186,7 +207,7 @@ const filter=()=>{
          <input id="ne" className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>   
          <button id="filter" onClick={filter}>חפש</button>
    </div>
-<div id="t"> תוצאות שהתקבלו</div>
+<div id="tozot"> תוצאות שהתקבלו</div>
 
       <div ><p id="za">חדשים</p></div>
    

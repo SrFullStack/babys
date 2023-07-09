@@ -2,10 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./RegisterBabySiter.css";
+import "./Basis.js";
 import { ReactComponent as D} from "./datils.svg";
 import { ReactComponent as D2} from "./datils2.svg";
 import { ReactComponent as E} from "./ershmafamaly.svg";
 import { ReactComponent as F} from "./datilsfamily.svg";
+import Basis from "./Basis.js";
+
 export default function RegisterSearchBabySiter() {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -65,10 +68,11 @@ export default function RegisterSearchBabySiter() {
    // https://jasonwatmore.com/post/2020/07/17/react-axios-http-post-request-examples
 
     return (<div>
-    <h1>RegisterSearchBabySiter</h1>
+ 
     
     {/* <D id="d"></D> */}
     {/* <D2 id="d2"></D2> */}
+    <Basis></Basis>
     <E id="ershame"></E>
     <F id="d"></F>
     <input  id="passwordF"  className="input" type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} /><br></br>

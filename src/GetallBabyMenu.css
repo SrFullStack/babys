@@ -242,3 +242,54 @@ border-radius: 25.0166px;
     
     position: absolute;
 }
+.checkSearchBabySiterGetById{
+    left: 5%;
+    top: 40%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6.76124px 18.2554px;
+    gap: 6.76px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(109, 148, 228, 0.5);
+    border-radius: 25.0166px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+#btsearchbabysiterrr{
+    left: 12%;
+    top: 17%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6.76124px 18.2554px;
+    gap: 6.76px;
+    width: 75%;
+    height: 120%;
+    background: #FFFFFF;
+    border: 1px solid rgba(109, 148, 228, 0.5);
+    border-radius: 25.0166px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+#tozot{
+    position: absolute;
+    width: 202.18px;
+    height: 35px;
+    left: 874.43px;
+    top: 462.64px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 29.0733px;
+    line-height: 35px;
+    text-align: right;
+    color: #2F4B6F;
+}

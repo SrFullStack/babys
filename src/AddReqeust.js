@@ -2,8 +2,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import Basis from "./Basis";
+import "./AddReqeust.css";
 export default function AddReqeust() {
     const location=useLocation();
+    const navigate=useNavigate();
     const {searchbabysiterr} = location?.state;
     const [TimeOfDay,setTimeOfDay]=useState("");
     const [day,setDay]=useState("");
@@ -43,6 +46,8 @@ try{
   await axios.post(`https://localhost:44312/api/RequsetSearchBabysiter`, SearchBabysiter)
   .then(response =>{
    //babysiter= response.data;  
+   alert("הפרטים נשמרו במעכת")
+   navigate("/", { replace: false })
 })
 }
 catch(err){
@@ -51,9 +56,16 @@ catch(err){
 }
 
     return (<div>
-        hello
-{searchbabysiterr.email}
-<select  defaultValue={'DEFAULT'} value={TimeOfDay} onChange={e => setTimeOfDay(e.target.value)} >
+
+        <Basis></Basis>
+         <div id="propil"> הוספת בקשה </div>
+      <p id="namee">        {searchbabysiterr.Email}
+</p>
+<br></br>
+<div className="ttime_of_day">
+<label >זמן ביום</label>
+</div>
+<select className="dayy1"  defaultValue={'DEFAULT'} value={TimeOfDay} onChange={e => setTimeOfDay(e.target.value)} >
 
 <option value="DEFAULT" disabled>Choose a time of the day...</option>
 <option  value="morning" >morning </option>
@@ -63,8 +75,9 @@ catch(err){
 <option  value="evening">evening</option>
 <option value="night">night</option>
 </select>
+<label className="yamimm">ימים</label>
 
-<select  defaultValue={'DEFAULT'} value={day}  onChange={e => setDay(e.target.value)} >
+<select  className="addd"  defaultValue={'DEFAULT'} value={day}  onChange={e => setDay(e.target.value)} >
     <option value="DEFAULT" disabled>Choose a day...</option>
   <option  value="Sunday" >Sunday </option>
   <option value="Monday">Monday</option>
@@ -74,19 +87,20 @@ catch(err){
   <option value="Friday">Friday</option>
 </select>
 
-
-<select  defaultValue={'DEFAULT'} value={Neighborhood}  onChange={e => setNeighborhood(e.target.value)} >
+<label className="time_of_dayyy"> שכונות</label>
+<select className="sconoot" defaultValue={'DEFAULT'} value={Neighborhood}  onChange={e => setNeighborhood(e.target.value)} >
     <option value="DEFAULT" disabled>Choose a day...</option>
   <option  value="1" >רמת שלמה </option>
   <option value="2">בית וגין</option>
   <option  value="3">רמות</option>
 
 </select>
-
-<input className="input" type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br>
-<button onClick={PostSearchBabySiter}>PostSearchBabySiter</button>
-<button onClick={sendLink} > email שלח</button>  
-<input onChange={(e)=> setLinkTo(e.target.value)} placeholder="email"></input>
+<label className="zmanimm">תעריף</label>
+<input className="ratee"  type="number" placeholder='rate' onChange={(e) => setrate(e.target.value)} /><br></br>
+<button className="shmira" onClick={PostSearchBabySiter}>שמירה</button>
+{/* //פונקצית שליחת מיל */}
+{/* <button onClick={sendLink} > email שלח</button>  
+<input onChange={(e)=> setLinkTo(e.target.value)} placeholder="email"></input> */}
             
            
          

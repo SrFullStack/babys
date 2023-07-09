@@ -18,6 +18,7 @@ import About from './About';
 import BabyStack from './BaByStack'
 import Example from './carusel.js';
 import Basis from './Basis.js';
+import GetAllReweustBabister from './GetAllReweustBabister.js';
 const App = () => (
 
 
@@ -36,6 +37,7 @@ const App = () => (
       <Route path="/GetallBabyMenu" element={<GetallBabyMenu />}></Route>
       <Route path="/BaByStack" element={<BabyStack />}></Route>
       <Route path="/Basis" element={<Basis />}></Route>
+      <Route path="/GetAllReweustBabister" element={<GetAllReweustBabister />}></Route>
     </ Routes>
     {/* <Example/> */}
   </BrowserRouter>

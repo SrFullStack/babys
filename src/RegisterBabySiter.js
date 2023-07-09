@@ -120,8 +120,8 @@ const searchBabySiter = () => {
       <D id="d"></D>
       <D2 id="d2"></D2>
 
-    <input id="password"  {...register("password", registerOptions.password)} className="input" type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} /><br></br>
-    <input id="emaill" {...register("email", registerOptions.email)} className="input" type="text" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
+    <input  id="password"  {...register("password", registerOptions.password)} className="input" type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} /><br></br>
+    <input id="emaill"  class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz"  {...register("email", registerOptions.email)} className="input" type="text" placeholder='email' onChange={(e) => setEmail(e.target.value)} /><br></br>
     <input id="first" {...register("firstName", registerOptions.firstName)} className="input" type="text" placeholder='firstName' onChange={(e) => setFirstName(e.target.value)} /><br></br>
     <input  id="last" className="input" type="text" placeholder='lastName' onChange={(e) => setLastName(e.target.value)} /><br></br>
     <input id="agee" className="input" type="number" placeholder='age' onChange={(e) => setAge(e.target.value)} /><br></br>
