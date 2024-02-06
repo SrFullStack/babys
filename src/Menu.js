@@ -89,8 +89,8 @@ const UpdateOpinion =async ()=>{
             if(response.data.babysiterId!=undefined)
          {
         var NumOfOpinion=response.data.numOfOpinion+1;
-        //var age =response.data.age+1;
-           const babysiter=({babysiterId:response.data.babysiterId,FirstName:response.data.firstName,LastName:response.data.lastName,Phone:response.data.phone,Age:response.data.age, Email:response.data.email,Password:response.data.password,Description:response.data.description,NumOfOpinion:NumOfOpinion});
+              //var age =response.data.age+1;
+                         const babysiter=({babysiterId:response.data.babysiterId,FirstName:response.data.firstName,LastName:response.data.lastName,Phone:response.data.phone,Age:response.data.age, Email:response.data.email,Password:response.data.password,Description:response.data.description,NumOfOpinion:NumOfOpinion});
            AddOpinion(babysiter);
         }
          else{
@@ -118,8 +118,8 @@ const UpdateOpinion =async ()=>{
       }
  }
 
- const EmailForBenefits=async (babysiter)=>{
-if(babysiter.NumOfOpinion>10){
+  const EmailForBenefits=async (babysiter)=>{
+   if(babysiter.NumOfOpinion>10){
     axios.get( `https://localhost:44312/api/RequsetSearchBabysiter/GetEmail?email=${email}`)
         .then(res => {
             const data1 = res.data;
@@ -237,13 +237,20 @@ if(babysiter.NumOfOpinion>10){
 return (
   <Card sx={{ maxWidth: 200, maxHeight: 200 }}>
      
-  <CardContent>
-    <Typography gutterBottom variant="h5" component="div">
-      דרושה
-    </Typography>
+    <CardContent>
+      <div></div>
+    <Typography gutterBottom variant="h5" component="div"  >
+        <div style={{ textAlign: 'center' }}>
+          דרושה ביביסיטר
+        </div>    </Typography>
     <Typography variant="body2" color="text.secondary">
-      דרושה ביביסיטר ליום {t.day} לשעות {t.partOfDay}
-     תעריף {t.price}
+     <div style={{ textAlign: 'right' }}>
+  {t.day} יום 
+  <br/>
+  {t.partOfDay } חלק ביום 
+  <br/>
+  תעריף {t.price}
+</div>
 
     
      <button id="m" onClick={babysiterr}>להגשת מועמדות</button>

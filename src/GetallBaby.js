@@ -150,15 +150,14 @@ const filter=()=>{
 return (
   <Card id="cd"  sx={{ maxWidth: 200, maxHeight: 200 }}>
      
-  <CardContent  >
-    <Typography gutterBottom variant="h5" component="div">
-      
-    <p id="pid">{t.firstName} {t.lastName}</p>
-    <div id="fs"><F></F></div>
-    
-    <p id="f">רמת שלמה</p>
+        <CardContent  >       
+   <Typography gutterBottom variant="h5" component="div" style={{ display: 'flex', alignItems: 'center' }}>
+  <p id="pid">{t.firstName} </p>
+  {/* <div id="fs"><F></F></div> */} 
+    {/* <p id="f">רמת שלמה</p> */}
     <div id="T"><T></T></div>
-<p id="pt">{t.phone}</p>
+                <p id="pt">{t.phone}</p>
+                <p id="f">{t.email}</p>
 <div id="ma"><M></M></div>
     </Typography>
     <Typography variant="body2" color="text.secondary">
