@@ -44,7 +44,7 @@ export default function SearchBabySiterGetById() {
      await axios.get(`https://localhost:44312/api/SearchBabySiter/Get?Password=${password}&Email=${email}`)
         .then(response =>{
           if(response.data.searchBabysiterId!=undefined){
-            alert(response.data.searchBabysiterId+"את שמורה במערכת"); 
+            alert("את שמורה במערכת"); 
              const PasswordAndEmail={password:password,email:email}
              navigate("/GetallBabyMenu", { state: {PasswordAndEmail:PasswordAndEmail}}); 
            
@@ -99,7 +99,7 @@ const searchBabySiter = () => {
   
    </div>
        {/* <button onClick={RegisterSearchBabySiter}>RegisterSearchBabySiter</button> */}
-              <button onClick={Opinion}>Opinion</button>
+              {/* <button onClick={Opinion}>Opinion</button> */}
 
       </div>
     )

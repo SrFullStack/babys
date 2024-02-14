@@ -51,17 +51,18 @@ export default function Opinion() {
           }
      }
 
-     const EmailForBenefits=async (babysiter)=>{
-if(babysiter.Age>10){
+    const EmailForBenefits = async (babysiter) => {
+       // alert(babysiter.Age)
+if(babysiter.Age>5){
         axios.get( `https://localhost:44312/api/RequsetSearchBabysiter/GetEmail?email=${email}`)
             .then(res => {
                 const data1 = res.data;
                 ResetBenefits(babysiter)
-                alert("נשלח מייל")
+                console.log("נשלח מייל")
             })
         }
         else{
-            alert("hhh")
+           // alert("hhh")
         }
         }
      

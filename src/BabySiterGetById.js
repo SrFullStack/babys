@@ -26,7 +26,7 @@ export default function BabySiterGetById() {
           if(response.data.babysiterId!=undefined){
             alert("אתה שמור במערכת");
             const datils={Password:password,Email:email}  
-            navigate("/GetAllReweustBabister", { state: {datils}})
+            navigate("/", { state: {datils}})
 // navigate("/PostTime", { state: {babysiter:response.data}});
           } 
             else{

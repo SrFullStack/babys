@@ -153,7 +153,7 @@ alert(n);
     <button id="btsearchbabysiter"onClick={searchBabySiter}>חיפוש מועמדים</button>
     {/* <button onClick={RequsetSearchBabysiterr}>חיפוש RequsetSearchBabysiterr</button> */}
     <L id="L"></L>
-    <button id="GetAllReweustBabister"onClick={GetAllReweustBabister}>לצפיה בפרפיל האישי שלי</button>
+    {/* <button id="GetAllReweustBabister"onClick={GetAllReweustBabister}>לצפיה בפרפיל האישי שלי</button> */}
     
    </div >
       <div id="propil">פרופיל אישי</div>
