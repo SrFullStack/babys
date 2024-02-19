@@ -54,8 +54,8 @@ export default function GetallBabyMenu() {
     const [babysittersBySearch, setBabysittersBySearch] = useState([])
 
     const [size1, setSize1] = useState(1);
-    const countOfLfs = 4;
-    const [smallAd, setSmallAd] = useState(babysittersBySearch.slice(0, countOfLfs));
+    const countOfLfs = 24;
+    const [smallAd, setSmallAd] = useState(babysittersBySearch);
   
     const bull = (
         <Box
@@ -112,6 +112,7 @@ export default function GetallBabyMenu() {
                     // setBabySitters((prev)=>[
                     //         ...b
                     //     ]);
+                    
                 });
 
 
@@ -121,16 +122,18 @@ export default function GetallBabyMenu() {
         catch (err) {
             console.error(err);
         }
-
+       // setSmallAd(babysittersBySearch);
     }, []);
 
 const filter=()=>{
     // if (!price) setBabysittersBySearch(babySitters)
-    const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))&& (bs.time.some(t => t.day <= day || day==""))
+    const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price
+    ) || price == -1   ) && ((bs.age == age || age == -1)) && (bs.time.some(t => t.day <= day || day == ""))
     &&((bs.time.partOfDay==PartOfDay ||PartOfDay=="")))
     // const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price)||price==-1)&&((bs.age==age ||age==-1))
     // )
-    
+    setSmallAd(filteredByPrice);
+
     // && ((bs.time.some(t => t.day <= day)||day==null ) )&&(bs => bs.age=age)||age==null)
     setBabysittersBySearch(filteredByPrice)
     // const filteredByPrice = babySitters.filter(bs => (bs.time.some(t => t.price <= price) || price==null))
@@ -204,7 +207,7 @@ const filter=()=>{
      <input id="age" className="input" type="number" placeholder='age' onChange={(e) => SetAge(e.target.value)} /><br></br>
      <input id="day" className="input" type="text" placeholder='day' onChange={(e) => SetDay(e.target.value)} /><br></br>
      <input id="part" className="input" type="text" placeholder='PartOfDay' onChange={(e) => SetPartOfDay(e.target.value)} /><br></br>
-         <input id="ne" className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>   
+         {/* <input id="ne" className="input" type="text" placeholder='neighborhood' onChange={(e) => Setneighborhood(e.target.value)} /><br></br>    */}
          <button id="filter" onClick={filter}>חפש</button>
    </div>
 <div id="tozot"> תוצאות שהתקבלו</div>
@@ -225,19 +228,21 @@ smallAd.map((data) => (
 </Stack>
 )}
 
-<Stack>
+{/* <Stack>
     <div id="pagination">
        
-<Pagination 
-  count={Math.ceil(babysittersBySearch.length / countOfLfs)}
-  color="secondary"
+ 
   onChange={handleChangePagination}
-/></div>
-</Stack>
+</div>
+</Stack> */}
 
 
-
-         
+            {/* <div className="pagination">
+                {Array.from({ length: Math.ceil(babysittersBySearch.length / countOfLfs) }, (_, index) => (
+                    <button key={index} onClick={() => handlePaginationChange(null, index + 1)}>{index + 1}</button>
+                ))}
+            </div> */}
+         <div></div>
          </div>);
 
 };

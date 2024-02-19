@@ -19,15 +19,16 @@ export default function BaByStack(data) {
 console.log(data)
         alert(data.obj.Neighborhood[0].neighborhoodId)
     }
-
+    
 
 
     return (<div>
-        <div dir="rtl">
-            <div id="cardd"> <p id="name">{data.obj.firstName} {data.obj.age}</p></div>
+        {/* <div dir="rtl">
+            <div id="cardd"> <p id="name">{data.obj.firstName}</p></div>
             <div id="talphone">        <T></T>
                 <div>  <p id="phone">{data.obj.phone} </p></div>
                 <div>  <p id="hh">{data.obj.partOfDay} </p></div>
+                <div>  <p id="HJJ">{data.obj.age} </p></div>
 
             </div>
 
@@ -37,8 +38,39 @@ console.log(data)
             <div id="mai">  <p>{data.obj.email} </p></div>
             <h1>{data.obj.Neighborhood.map((t) => { t.neighborhoodId })}</h1>
         </div>
-        <div id="ma"><M></M></div>
+        <div id="ma"><M></M></div> */}
+        <div dir="rtl">
+            <div id="cardd">
+                <p id="name">{data.obj.firstName} {data.obj.age} </p>
+            </div>
+            <div id="talphone">
+                <T></T>
+                <div>
+                    <p id="phone">{data.obj.phone}</p>
+                </div>
+                <div>
+                    <p id="hh">{data.obj.partOfDay}</p>
+                </div>
+               
 
+                
+                <div>
+                </div>
+            </div>
+            <div id="neboord">
+                <F></F>
+            </div>
+            <div id="neb">רמת שלמה נווה יעקב</div>
+            <div id="mai">
+                <p>{data.obj.email}</p>
+            </div>
+            <h1>
+                {data.obj.Neighborhood.map((t) => { t.neighborhoodId })}
+            </h1>
+        </div>
+        <div id="ma">
+            <M></M>
+        </div>
 
 
 
